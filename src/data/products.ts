@@ -1,0 +1,78 @@
+import { Product } from '@/types/product'
+
+export const products: Product[] = [
+  {
+    id: 1,
+    name: 'Wireless Headphones',
+    description: 'Premium noise-cancelling wireless headphones with 30-hour battery life',
+    price: 299.99,
+    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80',
+    category: 'Electronics',
+    inStock: true,
+  },
+  {
+    id: 2,
+    name: 'Smart Watch',
+    description: 'Advanced fitness tracking and notifications on your wrist',
+    price: 399.99,
+    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&q=80',
+    category: 'Electronics',
+    inStock: true,
+  },
+  {
+    id: 3,
+    name: 'Laptop Stand',
+    description: 'Ergonomic aluminum laptop stand for better posture',
+    price: 49.99,
+    image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&q=80',
+    category: 'Accessories',
+    inStock: true,
+  },
+  {
+    id: 4,
+    name: 'Mechanical Keyboard',
+    description: 'RGB backlit mechanical keyboard with custom switches',
+    price: 149.99,
+    image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500&q=80',
+    category: 'Accessories',
+    inStock: true,
+  },
+  {
+    id: 5,
+    name: 'Portable Speaker',
+    description: 'Waterproof Bluetooth speaker with 360-degree sound',
+    price: 79.99,
+    image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&q=80',
+    category: 'Electronics',
+    inStock: false,
+  },
+  {
+    id: 6,
+    name: 'Phone Case',
+    description: 'Durable protective case with military-grade protection',
+    price: 29.99,
+    image: 'https://images.unsplash.com/photo-1585544314038-a0d3769d0193?w=500&q=80',
+    category: 'Accessories',
+    inStock: true,
+  },
+  {
+    id: 7,
+    name: 'USB-C Hub',
+    description: '7-in-1 USB-C hub with multiple ports and SD card reader',
+    price: 59.99,
+    image: 'https://images.unsplash.com/photo-1625948515291-69613efd103f?w=500&q=80',
+    category: 'Accessories',
+    inStock: true,
+  },
+  {
+    id: 8,
+    name: 'Webcam HD',
+    description: '1080p HD webcam with auto-focus and built-in microphone',
+    price: 89.99,
+    image: 'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=500&q=80',
+    category: 'Electronics',
+    inStock: true,
+  },
+]
+
+export const categories = ['All', 'Electronics', 'Accessories']
