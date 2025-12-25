@@ -1,4 +1,4 @@
-# TechStore - E-Commerce Demo
+# Hændy - E-Commerce Demo
 
 A modern, responsive e-commerce website built with React, TypeScript, and Tailwind CSS.
 

@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom'
-import { ShoppingCart, Store } from 'lucide-react'
-import { useCartStore } from '@/store/cartStore'
-import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { useCartStore } from '@/store/cartStore'
+import { ShoppingCart, Store } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export function Navbar() {
   const totalItems = useCartStore((state) => state.getTotalItems())
@@ -12,7 +12,7 @@ export function Navbar() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2 font-bold text-xl">
           <Store className="h-6 w-6" />
-          <span>TechStore</span>
+          <span>Hændy</span>
         </Link>
 
         <div className="flex items-center gap-6">

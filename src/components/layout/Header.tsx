@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom'
-import { ShoppingCart, Store } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import { useCartStore } from '@/store/cartStore'
+import { ShoppingCart, Store } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export function Header() {
   const totalItems = useCartStore((state) => state.getTotalItems())
@@ -12,7 +12,7 @@ export function Header() {
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         <Link to="/" className="flex items-center gap-2 font-bold text-xl">
           <Store className="h-6 w-6" />
-          <span>TechStore</span>
+          <span>Hændy</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">

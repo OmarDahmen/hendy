@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom'
-import { ArrowRight, Package, Truck, Shield } from 'lucide-react'
+import { ProductCard } from '@/components/ProductCard'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
-import { ProductCard } from '@/components/ProductCard'
 import { products } from '@/data/products'
+import { ArrowRight, Package, Shield, Truck } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export function Home() {
   const featuredProducts = products.slice(0, 4)
@@ -15,7 +15,7 @@ export function Home() {
         <div className="container px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-              Welcome to TechStore
+              Welcome to Hændy Kits
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
               Discover the latest tech gadgets and accessories at unbeatable prices

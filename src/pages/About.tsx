@@ -1,11 +1,11 @@
 import { Card, CardContent } from '@/components/ui/card'
-import { Users, Target, Heart, Award } from 'lucide-react'
+import { Award, Heart, Target, Users } from 'lucide-react'
 
 export function About() {
   return (
     <div className="container px-4 md:px-6 py-8">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">About TechStore</h1>
+        <h1 className="text-3xl md:text-4xl font-bold mb-4">About Hændy</h1>
         <p className="text-lg text-muted-foreground mb-12">
           Your trusted partner in technology and innovation
         </p>
@@ -13,7 +13,7 @@ export function About() {
         <div className="prose prose-lg max-w-none mb-12">
           <h2 className="text-2xl font-bold mb-4">Our Story</h2>
           <p className="text-muted-foreground mb-6">
-            Founded in 2024, TechStore has been at the forefront of bringing the
+            Founded in 2024, Hændy has been at the forefront of bringing the
             latest technology to enthusiasts and professionals alike. We believe
             that everyone deserves access to quality tech products that enhance
             their daily lives.
@@ -81,10 +81,10 @@ export function About() {
             <p className="text-muted-foreground">
               Email us at{' '}
               <a
-                href="mailto:info@techstore.com"
+                href="mailto:info@hændy.com"
                 className="text-primary hover:underline font-medium"
               >
-                info@techstore.com
+                info@hændy.com
               </a>
             </p>
           </CardContent>
