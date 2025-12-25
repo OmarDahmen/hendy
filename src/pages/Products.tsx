@@ -4,19 +4,19 @@ import { products, categories } from '@/data/products'
 import { Button } from '@/components/ui/button'
 
 export function Products() {
-  const [selectedCategory, setSelectedCategory] = useState('All')
+  const [selectedCategory, setSelectedCategory] = useState('Tous')
 
   const filteredProducts =
-    selectedCategory === 'All'
+    selectedCategory === 'Tous'
       ? products
       : products.filter((product) => product.category === selectedCategory)
 
   return (
     <div className="container px-4 md:px-6 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">Our Products</h1>
+        <h1 className="text-3xl md:text-4xl font-bold mb-4">Nos Kits</h1>
         <p className="text-muted-foreground mb-6">
-          Browse our collection of tech products
+          Découvrez notre collection de kits créatifs et éducatifs
         </p>
 
         {/* Category Filter */}
@@ -42,7 +42,7 @@ export function Products() {
 
       {filteredProducts.length === 0 && (
         <div className="text-center py-12">
-          <p className="text-muted-foreground">No products found in this category</p>
+          <p className="text-muted-foreground">Aucun produit trouvé dans cette catégorie</p>
         </div>
       )}
     </div>
