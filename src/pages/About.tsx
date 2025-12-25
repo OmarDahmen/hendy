@@ -1,50 +1,64 @@
 import { Card, CardContent } from '@/components/ui/card'
-import { Award, Heart, Target, Users } from 'lucide-react'
+import { Palette, BookOpen, Sparkles, Heart } from 'lucide-react'
 
 export function About() {
   return (
     <div className="container px-4 md:px-6 py-8">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">About Hændy</h1>
+        <h1 className="text-3xl md:text-4xl font-bold mb-4">À Propos de Hændy Kits</h1>
         <p className="text-lg text-muted-foreground mb-12">
-          Your trusted partner in technology and innovation
+          Une marque créative et éducative pour enfants et adolescents
         </p>
 
         <div className="prose prose-lg max-w-none mb-12">
-          <h2 className="text-2xl font-bold mb-4">Our Story</h2>
+          <h2 className="text-2xl font-bold mb-4">Notre Mission</h2>
           <p className="text-muted-foreground mb-6">
-            Founded in 2024, Hændy has been at the forefront of bringing the
-            latest technology to enthusiasts and professionals alike. We believe
-            that everyone deserves access to quality tech products that enhance
-            their daily lives.
+            Hændy Kits a pour ambition de devenir une marque de référence dans le domaine
+            des produits créatifs et éducatifs pour enfants et adolescents. Nous nous positionnons
+            à l'intersection de la créativité, de l'éducation et de l'amusement, offrant des
+            expériences ludiques qui stimulent l'imagination et le développement cognitif,
+            mais aussi la motricité fine.
           </p>
+
+          <h2 className="text-2xl font-bold mb-4 mt-8">Notre Vision</h2>
           <p className="text-muted-foreground mb-6">
-            Our mission is to provide a curated selection of the best tech gadgets
-            and accessories, backed by exceptional customer service and competitive
-            pricing. We carefully test and vet each product to ensure it meets our
-            high standards.
+            Nous croyons que chaque enfant mérite des outils créatifs qui lui permettent
+            d'apprendre en jouant. Nos kits d'activités et carnets personnalisables sont
+            conçus pour encourager l'expression personnelle et rendre chaque produit unique
+            pour son utilisateur.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           <Card>
             <CardContent className="p-6">
-              <Users className="h-10 w-10 mb-4 text-primary" />
-              <h3 className="font-bold text-xl mb-2">Customer First</h3>
+              <Palette className="h-10 w-10 mb-4 text-primary" />
+              <h3 className="font-bold text-xl mb-2">Créativité</h3>
               <p className="text-muted-foreground">
-                We prioritize our customers' needs and satisfaction above all
-                else. Your happiness is our success.
+                Stimuler l'imagination et l'expression artistique à travers des activités
+                ludiques et engageantes.
               </p>
             </CardContent>
           </Card>
 
           <Card>
             <CardContent className="p-6">
-              <Target className="h-10 w-10 mb-4 text-primary" />
-              <h3 className="font-bold text-xl mb-2">Quality Focus</h3>
+              <BookOpen className="h-10 w-10 mb-4 text-primary" />
+              <h3 className="font-bold text-xl mb-2">Éducation</h3>
               <p className="text-muted-foreground">
-                Every product is carefully selected and tested to ensure it meets
-                our rigorous quality standards.
+                Proposer des kits éducatifs qui permettent aux enfants d'apprendre
+                en s'amusant, développant leurs compétences cognitives.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent className="p-6">
+              <Sparkles className="h-10 w-10 mb-4 text-primary" />
+              <h3 className="font-bold text-xl mb-2">Personnalisation</h3>
+              <p className="text-muted-foreground">
+                Mettre en avant la personnalisation comme valeur centrale, rendant
+                chaque produit unique pour son utilisateur.
               </p>
             </CardContent>
           </Card>
@@ -52,39 +66,55 @@ export function About() {
           <Card>
             <CardContent className="p-6">
               <Heart className="h-10 w-10 mb-4 text-primary" />
-              <h3 className="font-bold text-xl mb-2">Passion for Tech</h3>
+              <h3 className="font-bold text-xl mb-2">Qualité</h3>
               <p className="text-muted-foreground">
-                We're tech enthusiasts ourselves, and we're excited to share our
-                passion with you through our products.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardContent className="p-6">
-              <Award className="h-10 w-10 mb-4 text-primary" />
-              <h3 className="font-bold text-xl mb-2">Excellence</h3>
-              <p className="text-muted-foreground">
-                We strive for excellence in everything we do, from product
-                selection to customer service.
+                Des produits soigneusement conçus pour garantir sécurité,
+                durabilité et valeur éducative.
               </p>
             </CardContent>
           </Card>
         </div>
 
+        <div className="mb-12">
+          <h2 className="text-2xl font-bold mb-6">Nos Publics</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card className="bg-primary/5">
+              <CardContent className="p-6">
+                <h3 className="font-bold text-xl mb-3">Enfants (3-12 ans)</h3>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li>• Kits éducatifs et jouets</li>
+                  <li>• Activités manuelles</li>
+                  <li>• Carnets créatifs personnalisés</li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-secondary/5">
+              <CardContent className="p-6">
+                <h3 className="font-bold text-xl mb-3">Adolescents (13-17 ans)</h3>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li>• Carnets créatifs avancés</li>
+                  <li>• Journaux personnels</li>
+                  <li>• Kits créatifs élaborés</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
         <Card className="bg-primary/5">
           <CardContent className="p-8 text-center">
-            <h2 className="text-2xl font-bold mb-4">Get in Touch</h2>
+            <h2 className="text-2xl font-bold mb-4">Contactez-nous</h2>
             <p className="text-muted-foreground mb-2">
-              Have questions or suggestions? We'd love to hear from you!
+              Des questions ou des suggestions ? Nous serions ravis de vous entendre !
             </p>
             <p className="text-muted-foreground">
-              Email us at{' '}
+              Écrivez-nous à{' '}
               <a
-                href="mailto:info@hændy.com"
+                href="mailto:contact@haendy.com"
                 className="text-primary hover:underline font-medium"
               >
-                info@hændy.com
+                contact@haendy.com
               </a>
             </p>
           </CardContent>

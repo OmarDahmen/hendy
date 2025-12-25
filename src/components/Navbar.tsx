@@ -12,18 +12,18 @@ export function Navbar() {
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2 font-bold text-xl">
           <Store className="h-6 w-6" />
-          <span>Hændy</span>
+          <span>Hændy Kits</span>
         </Link>
 
         <div className="flex items-center gap-6">
           <Link to="/" className="text-sm font-medium hover:text-primary transition-colors">
-            Home
+            Accueil
           </Link>
           <Link to="/categories" className="text-sm font-medium hover:text-primary transition-colors">
-            Categories
+            Nos Kits
           </Link>
           <Link to="/about" className="text-sm font-medium hover:text-primary transition-colors">
-            About
+            À Propos
           </Link>
 
           <Link to="/cart">
