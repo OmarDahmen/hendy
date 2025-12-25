@@ -15,7 +15,7 @@ export function Cart() {
 
   if (items.length === 0) {
     return (
-      <div className="container px-4 md:px-6 py-16">
+      <div className="container mx-auto py-16">
         <div className="max-w-md mx-auto text-center">
           <ShoppingBag className="h-16 w-16 mx-auto mb-4 text-muted-foreground" />
           <h2 className="text-2xl font-bold mb-2">Votre panier est vide</h2>
@@ -31,7 +31,7 @@ export function Cart() {
   }
 
   return (
-    <div className="container px-4 md:px-6 py-8">
+    <div className="container mx-auto py-8">
       <h1 className="text-3xl md:text-4xl font-bold mb-8">Panier</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

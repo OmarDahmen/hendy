@@ -9,7 +9,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 overflow-x-hidden">
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6 max-w-full">
+      <div className="container mx-auto flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2 font-bold text-xl">
           <Store className="h-6 w-6" />
           <span>Hændy Kits</span>
@@ -44,7 +44,7 @@ export function Header() {
 
       {/* Mobile Navigation */}
       <div className="md:hidden border-t">
-        <nav className="container flex items-center justify-around py-2 px-4">
+        <nav className="container mx-auto flex items-center justify-around py-2">
           <Link to="/" className="text-xs font-medium hover:underline">
             Accueil
           </Link>
