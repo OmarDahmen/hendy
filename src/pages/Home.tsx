@@ -20,7 +20,7 @@ export function Home() {
             <p className="text-xl text-muted-foreground mb-8">
               Découvrez nos kits créatifs et éducatifs pour enfants et adolescents. Apprendre en jouant !
             </p>
-            <Link to="/categories">
+            <Link to="/kits">
               <Button size="lg">
                 Découvrir nos Kits <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
@@ -85,7 +85,7 @@ export function Home() {
           </div>
 
           <div className="text-center">
-            <Link to="/categories">
+            <Link to="/kits">
               <Button variant="outline" size="lg">
                 Voir Tous les Produits
               </Button>

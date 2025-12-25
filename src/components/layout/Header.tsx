@@ -19,7 +19,7 @@ export function Header() {
           <Link to="/" className="text-sm font-medium hover:underline">
             Accueil
           </Link>
-          <Link to="/categories" className="text-sm font-medium hover:underline">
+          <Link to="/kits" className="text-sm font-medium hover:underline">
             Nos Kits
           </Link>
           <Link to="/about" className="text-sm font-medium hover:underline">
@@ -48,7 +48,7 @@ export function Header() {
           <Link to="/" className="text-xs font-medium hover:underline">
             Accueil
           </Link>
-          <Link to="/categories" className="text-xs font-medium hover:underline">
+          <Link to="/kits" className="text-xs font-medium hover:underline">
             Nos Kits
           </Link>
           <Link to="/about" className="text-xs font-medium hover:underline">

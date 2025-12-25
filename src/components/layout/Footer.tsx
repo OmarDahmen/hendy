@@ -19,7 +19,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="/categories" className="hover:underline">
+                <a href="/kits" className="hover:underline">
                   Nos Kits
                 </a>
               </li>
