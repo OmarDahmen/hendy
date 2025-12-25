@@ -29,43 +29,6 @@ export function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card>
-              <CardContent className="flex flex-col items-center text-center p-6">
-                <Package className="h-12 w-12 mb-4 text-primary" />
-                <h3 className="font-bold text-lg mb-2">Produits de Qualité</h3>
-                <p className="text-sm text-muted-foreground">
-                  Sélection soigneuse de kits créatifs et éducatifs de haute qualité
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="flex flex-col items-center text-center p-6">
-                <Truck className="h-12 w-12 mb-4 text-primary" />
-                <h3 className="font-bold text-lg mb-2">Livraison Rapide</h3>
-                <p className="text-sm text-muted-foreground">
-                  Livraison gratuite pour les commandes de plus de 50 €. Recevez vos kits rapidement
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="flex flex-col items-center text-center p-6">
-                <Shield className="h-12 w-12 mb-4 text-primary" />
-                <h3 className="font-bold text-lg mb-2">Paiement Sécurisé</h3>
-                <p className="text-sm text-muted-foreground">
-                  Achetez en toute confiance avec notre système de paiement sécurisé
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
       {/* Featured Products Section */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto">
@@ -90,6 +53,43 @@ export function Home() {
                 Voir Tous les Produits
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 md:py-24 bg-muted/30">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card>
+              <CardContent className="flex flex-col items-center text-center p-6">
+                <Package className="h-12 w-12 mb-4 text-primary" />
+                <h3 className="font-bold text-lg mb-2">Produits de Qualité</h3>
+                <p className="text-sm text-muted-foreground">
+                  Sélection soigneuse de kits créatifs et éducatifs de haute qualité
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="flex flex-col items-center text-center p-6">
+                <Truck className="h-12 w-12 mb-4 text-primary" />
+                <h3 className="font-bold text-lg mb-2">Livraison Rapide</h3>
+                <p className="text-sm text-muted-foreground">
+                  Livraison gratuite pour les commandes de plus de 50€. Recevez vos kits rapidement
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="flex flex-col items-center text-center p-6">
+                <Shield className="h-12 w-12 mb-4 text-primary" />
+                <h3 className="font-bold text-lg mb-2">Paiement Sécurisé</h3>
+                <p className="text-sm text-muted-foreground">
+                  Achetez en toute confiance avec notre système de paiement sécurisé
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom'
-import { Minus, Plus, Trash2, ShoppingBag, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { useCartStore } from '@/store/cartStore'
+import { Minus, Plus, ShoppingBag, Sparkles, Trash2 } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 export function Cart() {
   const { items, updateQuantity, removeItem, getTotalPrice, clearCart } =
@@ -72,7 +72,7 @@ export function Cart() {
                       </div>
                     )}
 
-                    <p className="font-bold text-lg">{item.price.toFixed(2)} €</p>
+                    <p className="font-bold text-lg">{item.price.toFixed(2)}€</p>
                   </div>
 
                   <div className="flex flex-col items-end justify-between">
@@ -129,21 +129,21 @@ export function Cart() {
               <div className="space-y-2 mb-4">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Sous-total</span>
-                  <span>{totalPrice.toFixed(2)} €</span>
+                  <span>{totalPrice.toFixed(2)}€</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Livraison</span>
-                  <span>{shipping === 0 ? 'GRATUITE' : `${shipping.toFixed(2)} €`}</span>
+                  <span>{shipping === 0 ? 'GRATUITE' : `${shipping.toFixed(2)}€`}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">TVA (20%)</span>
-                  <span>{tax.toFixed(2)} €</span>
+                  <span>{tax.toFixed(2)}€</span>
                 </div>
               </div>
 
               {totalPrice < 50 && (
                 <p className="text-sm text-muted-foreground mb-4 p-2 bg-secondary/20 rounded">
-                  Ajoutez {(50 - totalPrice).toFixed(2)} € pour profiter de la livraison gratuite
+                  Ajoutez {(50 - totalPrice).toFixed(2)}€ pour profiter de la livraison gratuite
                 </p>
               )}
 
@@ -151,7 +151,7 @@ export function Cart() {
                 <div className="flex justify-between items-center">
                   <span className="text-xl font-bold">Total</span>
                   <span className="text-2xl font-bold">
-                    {finalTotal.toFixed(2)} €
+                    {finalTotal.toFixed(2)}€
                   </span>
                 </div>
               </div>

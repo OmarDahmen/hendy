@@ -1,9 +1,9 @@
-import { ShoppingCart, Check, Sparkles } from 'lucide-react'
-import type { Product } from '@/types/product'
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { useCartStore } from '@/store/cartStore'
+import type { Product } from '@/types/product'
+import { Check, ShoppingCart, Sparkles } from 'lucide-react'
 import { useState } from 'react'
 import { PersonalizationModal } from './PersonalizationModal'
 
@@ -52,7 +52,7 @@ export function ProductCard({ product }: ProductCardProps) {
           <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
             {product.description}
           </p>
-          <p className="text-2xl font-bold">{product.price.toFixed(2)} €</p>
+          <p className="text-2xl font-bold">{product.price.toFixed(2)}€</p>
         </CardContent>
         <CardFooter className="p-4 pt-0">
           <Button
