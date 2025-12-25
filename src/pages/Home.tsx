@@ -15,14 +15,14 @@ export function Home() {
         <div className="container px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-              Welcome to Hændy Kits
+              Bienvenue chez Hændy Kits
             </h1>
             <p className="text-xl text-muted-foreground mb-8">
-              Discover the latest tech gadgets and accessories at unbeatable prices
+              Découvrez nos kits créatifs et éducatifs pour enfants et adolescents. Apprendre en jouant !
             </p>
-            <Link to="/products">
+            <Link to="/categories">
               <Button size="lg">
-                Shop Now <ArrowRight className="ml-2 h-5 w-5" />
+                Découvrir nos Kits <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
           </div>
@@ -36,9 +36,9 @@ export function Home() {
             <Card>
               <CardContent className="flex flex-col items-center text-center p-6">
                 <Package className="h-12 w-12 mb-4 text-primary" />
-                <h3 className="font-bold text-lg mb-2">Quality Products</h3>
+                <h3 className="font-bold text-lg mb-2">Produits de Qualité</h3>
                 <p className="text-sm text-muted-foreground">
-                  Carefully curated selection of top-quality tech products
+                  Sélection soigneuse de kits créatifs et éducatifs de haute qualité
                 </p>
               </CardContent>
             </Card>
@@ -46,9 +46,9 @@ export function Home() {
             <Card>
               <CardContent className="flex flex-col items-center text-center p-6">
                 <Truck className="h-12 w-12 mb-4 text-primary" />
-                <h3 className="font-bold text-lg mb-2">Fast Shipping</h3>
+                <h3 className="font-bold text-lg mb-2">Livraison Rapide</h3>
                 <p className="text-sm text-muted-foreground">
-                  Free shipping on orders over $50. Get your items quickly
+                  Livraison gratuite pour les commandes de plus de 50 €. Recevez vos kits rapidement
                 </p>
               </CardContent>
             </Card>
@@ -56,9 +56,9 @@ export function Home() {
             <Card>
               <CardContent className="flex flex-col items-center text-center p-6">
                 <Shield className="h-12 w-12 mb-4 text-primary" />
-                <h3 className="font-bold text-lg mb-2">Secure Payment</h3>
+                <h3 className="font-bold text-lg mb-2">Paiement Sécurisé</h3>
                 <p className="text-sm text-muted-foreground">
-                  Shop with confidence using our secure payment system
+                  Achetez en toute confiance avec notre système de paiement sécurisé
                 </p>
               </CardContent>
             </Card>
@@ -71,10 +71,10 @@ export function Home() {
         <div className="container px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Featured Products
+              Produits en Vedette
             </h2>
             <p className="text-muted-foreground">
-              Check out our most popular items
+              Découvrez nos kits les plus populaires
             </p>
           </div>
 
@@ -85,9 +85,9 @@ export function Home() {
           </div>
 
           <div className="text-center">
-            <Link to="/products">
+            <Link to="/categories">
               <Button variant="outline" size="lg">
-                View All Products
+                Voir Tous les Produits
               </Button>
             </Link>
           </div>

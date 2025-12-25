@@ -12,18 +12,18 @@ export function Header() {
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         <Link to="/" className="flex items-center gap-2 font-bold text-xl">
           <Store className="h-6 w-6" />
-          <span>Hændy</span>
+          <span>Hændy Kits</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
           <Link to="/" className="text-sm font-medium hover:underline">
-            Home
+            Accueil
           </Link>
-          <Link to="/products" className="text-sm font-medium hover:underline">
-            Products
+          <Link to="/categories" className="text-sm font-medium hover:underline">
+            Nos Kits
           </Link>
           <Link to="/about" className="text-sm font-medium hover:underline">
-            About
+            À Propos
           </Link>
         </nav>
 
@@ -46,13 +46,13 @@ export function Header() {
       <div className="md:hidden border-t">
         <nav className="container flex items-center justify-around py-2 px-4">
           <Link to="/" className="text-xs font-medium hover:underline">
-            Home
+            Accueil
           </Link>
-          <Link to="/products" className="text-xs font-medium hover:underline">
-            Products
+          <Link to="/categories" className="text-xs font-medium hover:underline">
+            Nos Kits
           </Link>
           <Link to="/about" className="text-xs font-medium hover:underline">
-            About
+            À Propos
           </Link>
         </nav>
       </div>
