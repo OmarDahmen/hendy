@@ -6,7 +6,21 @@ import { ArrowRight, Package, Shield, Truck } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 export function Home() {
-  const featuredProducts = products.slice(0, 4)
+  // Sélectionner 8 produits variés : mélange de catégories et sous-catégories
+  const featuredProducts = [
+    ...products
+      .filter((p) => p.category === 'Kits Enfants' && p.subcategory === 'Carnets Créatifs')
+      .slice(0, 2),
+    ...products
+      .filter((p) => p.category === 'Kits Enfants' && p.subcategory === 'Kits Jouets Éducatifs')
+      .slice(0, 2),
+    ...products
+      .filter((p) => p.category === 'Kits Adolescents' && p.subcategory === 'Carnets Créatifs')
+      .slice(0, 2),
+    ...products
+      .filter((p) => p.category === 'Kits Adolescents' && p.subcategory === 'Kits Créatifs')
+      .slice(0, 2),
+  ]
 
   return (
     <div className="flex flex-col">
@@ -38,18 +52,33 @@ export function Home() {
             <p className="text-muted-foreground">Découvrez nos kits les plus populaires</p>
           </div>
 
-          <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {featuredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
+          {/* Horizontal scrollable container */}
+          <div className="relative -mx-4 px-4">
+            <div className="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4">
+              {featuredProducts.map((product) => (
+                <div key={product.id} className="w-[250px] flex-shrink-0 snap-start">
+                  <ProductCard product={product} />
+                </div>
+              ))}
+
+              {/* Carte "Voir Tous les Produits" */}
+              <Link to="/kits" className="w-[250px] flex-shrink-0 snap-start">
+                <Card className="flex h-full cursor-pointer items-center justify-center transition-shadow hover:shadow-lg">
+                  <CardContent className="flex flex-col items-center p-6 text-center">
+                    <ArrowRight className="text-primary mb-4 h-12 w-12" />
+                    <h3 className="mb-2 text-lg font-bold">Voir Tous les Produits</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Découvrez notre collection complète de kits créatifs
+                    </p>
+                  </CardContent>
+                </Card>
+              </Link>
+            </div>
           </div>
 
-          <div className="text-center">
-            <Link to="/kits">
-              <Button variant="outline" size="lg">
-                Voir Tous les Produits
-              </Button>
-            </Link>
+          {/* Indicateur de scroll pour mobile */}
+          <div className="text-muted-foreground mt-4 text-center text-sm md:hidden">
+            ← Faites défiler pour voir plus →
           </div>
         </div>
       </section>
