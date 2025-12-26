@@ -1,9 +1,9 @@
-import { useRef, useState, useEffect } from 'react'
 import { ProductCard } from '@/components/ProductCard'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { products } from '@/data/products'
 import { ArrowRight, ChevronLeft, ChevronRight, Package, Shield, Truck } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export function Home() {
@@ -148,6 +148,15 @@ export function Home() {
           {/* Indicateur de scroll pour mobile */}
           <div className="text-muted-foreground mt-4 text-center text-sm md:hidden">
             ← Faites défiler pour voir plus →
+          </div>
+
+          {/* Bouton "Voir Tous les Produits" */}
+          <div className="mt-8 text-center">
+            <Link to="/kits">
+              <Button variant="outline" size="lg">
+                Voir Tous les Produits <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
