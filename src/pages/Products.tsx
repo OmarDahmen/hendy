@@ -1,15 +1,39 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { ProductCard } from '@/components/ProductCard'
-import { products, categories } from '@/data/products'
+import { products, categories, subcategories } from '@/data/products'
 import { Button } from '@/components/ui/button'
 
 export function Products() {
   const [selectedCategory, setSelectedCategory] = useState('Tous')
+  const [selectedSubcategory, setSelectedSubcategory] = useState('Tous')
 
-  const filteredProducts =
-    selectedCategory === 'Tous'
-      ? products
-      : products.filter((product) => product.category === selectedCategory)
+  // Get available subcategories based on selected category
+  const availableSubcategories = useMemo(() => {
+    if (selectedCategory === 'Tous') return []
+    return subcategories[selectedCategory as keyof typeof subcategories] || []
+  }, [selectedCategory])
+
+  // Reset subcategory when category changes
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category)
+    setSelectedSubcategory('Tous')
+  }
+
+  const filteredProducts = useMemo(() => {
+    let filtered = products
+
+    // Filter by category
+    if (selectedCategory !== 'Tous') {
+      filtered = filtered.filter((product) => product.category === selectedCategory)
+    }
+
+    // Filter by subcategory
+    if (selectedSubcategory !== 'Tous') {
+      filtered = filtered.filter((product) => product.subcategory === selectedSubcategory)
+    }
+
+    return filtered
+  }, [selectedCategory, selectedSubcategory])
 
   return (
     <div className="container mx-auto py-8">
@@ -20,17 +44,39 @@ export function Products() {
         </p>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap gap-2">
-          {categories.map((category) => (
-            <Button
-              key={category}
-              variant={selectedCategory === category ? 'default' : 'outline'}
-              onClick={() => setSelectedCategory(category)}
-            >
-              {category}
-            </Button>
-          ))}
+        <div className="mb-4">
+          <h2 className="mb-2 text-sm font-semibold">Catégories</h2>
+          <div className="flex flex-wrap gap-2">
+            {categories.map((category) => (
+              <Button
+                key={category}
+                variant={selectedCategory === category ? 'default' : 'outline'}
+                onClick={() => handleCategoryChange(category)}
+              >
+                {category}
+              </Button>
+            ))}
+          </div>
         </div>
+
+        {/* Subcategory Filter */}
+        {availableSubcategories.length > 0 && (
+          <div>
+            <h2 className="mb-2 text-sm font-semibold">Sous-catégories</h2>
+            <div className="flex flex-wrap gap-2">
+              {availableSubcategories.map((subcategory) => (
+                <Button
+                  key={subcategory}
+                  variant={selectedSubcategory === subcategory ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => setSelectedSubcategory(subcategory)}
+                >
+                  {subcategory}
+                </Button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Products Grid */}
