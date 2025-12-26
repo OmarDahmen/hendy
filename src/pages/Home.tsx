@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { ProductCard } from '@/components/ProductCard'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom'
 
 export function Home() {
   const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [showLeftArrow, setShowLeftArrow] = useState(false)
+  const [showRightArrow, setShowRightArrow] = useState(true)
 
   // Sélectionner 8 produits variés : mélange de catégories et sous-catégories
   const featuredProducts = [
@@ -24,6 +26,28 @@ export function Home() {
       .filter((p) => p.category === 'Kits Adolescents' && p.subcategory === 'Kits Créatifs')
       .slice(0, 2),
   ]
+
+  const updateArrowsVisibility = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current
+      setShowLeftArrow(scrollLeft > 0)
+      setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 1)
+    }
+  }
+
+  useEffect(() => {
+    const container = scrollContainerRef.current
+    if (container) {
+      updateArrowsVisibility()
+      container.addEventListener('scroll', updateArrowsVisibility)
+      window.addEventListener('resize', updateArrowsVisibility)
+
+      return () => {
+        container.removeEventListener('scroll', updateArrowsVisibility)
+        window.removeEventListener('resize', updateArrowsVisibility)
+      }
+    }
+  }, [])
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
@@ -71,24 +95,28 @@ export function Home() {
           {/* Horizontal scrollable container */}
           <div className="group relative -mx-4 px-4">
             {/* Bouton navigation gauche */}
-            <Button
-              variant="outline"
-              size="icon"
-              className="bg-background/80 absolute top-1/2 left-8 z-10 hidden -translate-y-1/2 rounded-full opacity-0 shadow-lg backdrop-blur-sm transition-opacity group-hover:opacity-100 md:flex"
-              onClick={() => scroll('left')}
-            >
-              <ChevronLeft className="h-6 w-6" />
-            </Button>
+            {showLeftArrow && (
+              <Button
+                variant="outline"
+                size="icon"
+                className="bg-background/80 absolute top-1/2 left-8 z-10 hidden -translate-y-1/2 rounded-full opacity-0 shadow-lg backdrop-blur-sm transition-opacity group-hover:opacity-100 md:flex"
+                onClick={() => scroll('left')}
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </Button>
+            )}
 
             {/* Bouton navigation droite */}
-            <Button
-              variant="outline"
-              size="icon"
-              className="bg-background/80 absolute top-1/2 right-8 z-10 hidden -translate-y-1/2 rounded-full opacity-0 shadow-lg backdrop-blur-sm transition-opacity group-hover:opacity-100 md:flex"
-              onClick={() => scroll('right')}
-            >
-              <ChevronRight className="h-6 w-6" />
-            </Button>
+            {showRightArrow && (
+              <Button
+                variant="outline"
+                size="icon"
+                className="bg-background/80 absolute top-1/2 right-8 z-10 hidden -translate-y-1/2 rounded-full opacity-0 shadow-lg backdrop-blur-sm transition-opacity group-hover:opacity-100 md:flex"
+                onClick={() => scroll('right')}
+              >
+                <ChevronRight className="h-6 w-6" />
+              </Button>
+            )}
 
             <div className="relative">
               <div
