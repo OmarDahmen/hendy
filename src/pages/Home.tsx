@@ -1,11 +1,14 @@
+import { useRef } from 'react'
 import { ProductCard } from '@/components/ProductCard'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { products } from '@/data/products'
-import { ArrowRight, Package, Shield, Truck } from 'lucide-react'
+import { ArrowRight, ChevronLeft, ChevronRight, Package, Shield, Truck } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 export function Home() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+
   // Sélectionner 8 produits variés : mélange de catégories et sous-catégories
   const featuredProducts = [
     ...products
@@ -21,6 +24,19 @@ export function Home() {
       .filter((p) => p.category === 'Kits Adolescents' && p.subcategory === 'Kits Créatifs')
       .slice(0, 2),
   ]
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 280 // Largeur d'une carte (250px) + gap (30px)
+      const newScrollPosition =
+        scrollContainerRef.current.scrollLeft +
+        (direction === 'left' ? -scrollAmount : scrollAmount)
+      scrollContainerRef.current.scrollTo({
+        left: newScrollPosition,
+        behavior: 'smooth',
+      })
+    }
+  }
 
   return (
     <div className="flex flex-col">
@@ -53,26 +69,51 @@ export function Home() {
           </div>
 
           {/* Horizontal scrollable container */}
-          <div className="relative -mx-4 px-4">
-            <div className="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4">
-              {featuredProducts.map((product) => (
-                <div key={product.id} className="w-[250px] flex-shrink-0 snap-start">
-                  <ProductCard product={product} />
-                </div>
-              ))}
+          <div className="group relative -mx-4 px-4">
+            {/* Bouton navigation gauche */}
+            <Button
+              variant="outline"
+              size="icon"
+              className="bg-background/80 absolute top-1/2 left-8 z-10 hidden -translate-y-1/2 rounded-full opacity-0 shadow-lg backdrop-blur-sm transition-opacity group-hover:opacity-100 md:flex"
+              onClick={() => scroll('left')}
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </Button>
 
-              {/* Carte "Voir Tous les Produits" */}
-              <Link to="/kits" className="w-[250px] flex-shrink-0 snap-start">
-                <Card className="flex h-full cursor-pointer items-center justify-center transition-shadow hover:shadow-lg">
-                  <CardContent className="flex flex-col items-center p-6 text-center">
-                    <ArrowRight className="text-primary mb-4 h-12 w-12" />
-                    <h3 className="mb-2 text-lg font-bold">Voir Tous les Produits</h3>
-                    <p className="text-muted-foreground text-sm">
-                      Découvrez notre collection complète de kits créatifs
-                    </p>
-                  </CardContent>
-                </Card>
-              </Link>
+            {/* Bouton navigation droite */}
+            <Button
+              variant="outline"
+              size="icon"
+              className="bg-background/80 absolute top-1/2 right-8 z-10 hidden -translate-y-1/2 rounded-full opacity-0 shadow-lg backdrop-blur-sm transition-opacity group-hover:opacity-100 md:flex"
+              onClick={() => scroll('right')}
+            >
+              <ChevronRight className="h-6 w-6" />
+            </Button>
+
+            <div className="relative">
+              <div
+                ref={scrollContainerRef}
+                className="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4"
+              >
+                {featuredProducts.map((product) => (
+                  <div key={product.id} className="w-[250px] flex-shrink-0 snap-start">
+                    <ProductCard product={product} />
+                  </div>
+                ))}
+
+                {/* Carte "Voir Tous les Produits" */}
+                <Link to="/kits" className="w-[250px] flex-shrink-0 snap-start">
+                  <Card className="flex h-full cursor-pointer items-center justify-center transition-shadow hover:shadow-lg">
+                    <CardContent className="flex flex-col items-center p-6 text-center">
+                      <ArrowRight className="text-primary mb-4 h-12 w-12" />
+                      <h3 className="mb-2 text-lg font-bold">Voir Tous les Produits</h3>
+                      <p className="text-muted-foreground text-sm">
+                        Découvrez notre collection complète de kits créatifs
+                      </p>
+                    </CardContent>
+                  </Card>
+                </Link>
+              </div>
             </div>
           </div>
 
