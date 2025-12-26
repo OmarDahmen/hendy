@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import type { Product, PersonalizationData } from '@/types/product'
+import { Button } from '@/components/ui/button'
 import {
   Dialog,
   DialogContent,
@@ -8,11 +7,12 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useCartStore } from '@/store/cartStore'
+import type { PersonalizationData, Product } from '@/types/product'
 import { Upload } from 'lucide-react'
+import { useState } from 'react'
 
 interface PersonalizationModalProps {
   product: Product
@@ -48,7 +48,7 @@ export function PersonalizationModal({ product, open, onClose }: Personalization
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[500px]">
+      <DialogContent className="bg-white sm:max-w-[500px]">
         <DialogHeader>
           <DialogTitle>Personnaliser votre {product.name}</DialogTitle>
           <DialogDescription>
