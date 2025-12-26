@@ -3,9 +3,9 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { useCartStore } from '@/store/cartStore'
 import type { Product } from '@/types/product'
-import { Check, ShoppingCart, Sparkles } from 'lucide-react'
+import { Check, Eye, ShoppingCart, Sparkles } from 'lucide-react'
 import { useState } from 'react'
-import { PersonalizationModal } from './PersonalizationModal'
+import { ProductDetailsModal } from './ProductDetailsModal'
 
 interface ProductCardProps {
   product: Product
@@ -14,19 +14,23 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   const { addItem, items } = useCartStore()
   const isInCart = items.some((item) => item.id === product.id)
-  const [showPersonalization, setShowPersonalization] = useState(false)
+  const [showDetails, setShowDetails] = useState(false)
 
-  const handleAddToCart = () => {
-    if (product.personalizable) {
-      setShowPersonalization(true)
-    } else {
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.stopPropagation()
+    if (!product.personalizable) {
       addItem(product)
+    } else {
+      setShowDetails(true)
     }
   }
 
   return (
     <>
-      <Card className="flex h-full flex-col overflow-hidden transition-shadow hover:shadow-lg">
+      <Card
+        className="flex h-full cursor-pointer flex-col overflow-hidden transition-shadow hover:shadow-lg"
+        onClick={() => setShowDetails(true)}
+      >
         <CardHeader className="p-0">
           <div className="relative aspect-square overflow-hidden">
             <img
@@ -40,6 +44,9 @@ export function ProductCard({ product }: ProductCardProps) {
                 Personnalisable
               </Badge>
             )}
+            <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all hover:bg-black/20 hover:opacity-100">
+              <Eye className="h-8 w-8 text-white" />
+            </div>
           </div>
         </CardHeader>
         <CardContent className="flex-grow p-4">
@@ -72,13 +79,11 @@ export function ProductCard({ product }: ProductCardProps) {
         </CardFooter>
       </Card>
 
-      {product.personalizable && (
-        <PersonalizationModal
-          product={product}
-          open={showPersonalization}
-          onClose={() => setShowPersonalization(false)}
-        />
-      )}
+      <ProductDetailsModal
+        product={product}
+        open={showDetails}
+        onClose={() => setShowDetails(false)}
+      />
     </>
   )
 }

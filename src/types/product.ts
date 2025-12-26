@@ -4,10 +4,13 @@ export interface Product {
   description: string
   price: number
   image: string
+  images?: string[] // Additional product images for gallery
   category: 'Kits Enfants' | 'Kits Adolescents'
   subcategory: 'Carnets Créatifs' | 'Kits Jouets Éducatifs' | 'Kits Créatifs'
   inStock: boolean
   personalizable?: boolean
+  features?: string[] // Product features/highlights
+  detailedDescription?: string // Longer description for modal
 }
 
 export interface PersonalizationData {
