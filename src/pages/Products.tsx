@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { ProductCard } from '@/components/ProductCard'
 import { products, categories, subcategories } from '@/data/products'
 import { Button } from '@/components/ui/button'
@@ -6,6 +6,11 @@ import { Button } from '@/components/ui/button'
 export function Products() {
   const [selectedCategory, setSelectedCategory] = useState('Tous')
   const [selectedSubcategory, setSelectedSubcategory] = useState('Tous')
+
+  // Scroll vers le haut au montage du composant
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   // Get available subcategories based on selected category
   const availableSubcategories = useMemo(() => {
