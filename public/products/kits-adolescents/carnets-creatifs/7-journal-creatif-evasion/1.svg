@@ -1,0 +1,47 @@
+<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pageBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f7fafc;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#edf2f7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" fill="url(#pageBg)"/>
+
+  <!-- Open journal pages -->
+  <g transform="translate(100, 150)">
+    <!-- Left page -->
+    <rect x="0" y="0" width="280" height="500" fill="#FFFFFF" stroke="#CBD5E0" stroke-width="2"/>
+
+    <!-- Lines on left page -->
+    <line x1="20" y1="50" x2="260" y2="50" stroke="#E2E8F0" stroke-width="1"/>
+    <line x1="20" y1="80" x2="260" y2="80" stroke="#E2E8F0" stroke-width="1"/>
+    <line x1="20" y1="110" x2="260" y2="110" stroke="#E2E8F0" stroke-width="1"/>
+
+    <!-- Handwritten text simulation -->
+    <text x="30" y="70" font-family="cursive" font-size="18" fill="#4A5568">Mes rêves de voyage...</text>
+    <text x="30" y="100" font-family="cursive" font-size="14" fill="#718096">Paris - Tour Eiffel</text>
+    <text x="30" y="130" font-family="cursive" font-size="14" fill="#718096">Tokyo - Temples</text>
+
+    <!-- Small sketch -->
+    <circle cx="140" cy="250" r="60" stroke="#667eea" stroke-width="2" fill="none"/>
+    <path d="M 140 190 L 160 230 L 180 250 L 140 310 L 100 250 L 120 230 Z" stroke="#764ba2" stroke-width="2" fill="none"/>
+
+    <!-- Right page -->
+    <rect x="320" y="0" width="280" height="500" fill="#FFFFFF" stroke="#CBD5E0" stroke-width="2"/>
+
+    <!-- Prompt text -->
+    <text x="340" y="40" font-family="Arial" font-size="16" font-weight="bold" fill="#667eea">Où aimerais-tu aller?</text>
+
+    <!-- Lines for writing -->
+    <line x1="340" y1="80" x2="580" y2="80" stroke="#E2E8F0" stroke-width="1"/>
+    <line x1="340" y1="110" x2="580" y2="110" stroke="#E2E8F0" stroke-width="1"/>
+    <line x1="340" y1="140" x2="580" y2="140" stroke="#E2E8F0" stroke-width="1"/>
+    <line x1="340" y1="170" x2="580" y2="170" stroke="#E2E8F0" stroke-width="1"/>
+
+    <!-- Decorative stars -->
+    <polygon points="460,300 465,315 480,315 468,325 473,340 460,330 447,340 452,325 440,315 455,315" fill="#FFD700"/>
+    <polygon points="520,350 523,360 533,360 525,366 528,376 520,370 512,376 515,366 507,360 517,360" fill="#FFD700"/>
+  </g>
+</svg>

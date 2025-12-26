@@ -1,0 +1,112 @@
+<svg width="800" height="800" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad11" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a8edea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:1" />
+    </linearGradient>
+
+    <pattern id="corkPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="5" cy="5" r="1" fill="#D2691E" opacity="0.3"/>
+      <circle cx="15" cy="15" r="1" fill="#D2691E" opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="800" fill="url(#bgGrad11)"/>
+
+  <!-- Cork board -->
+  <g transform="translate(100, 80)">
+    <!-- Shadow -->
+    <rect x="10" y="10" width="600" height="640" fill="#000000" opacity="0.15" rx="4"/>
+
+    <!-- Board -->
+    <rect x="0" y="0" width="600" height="640" fill="#CD853F" rx="4"/>
+    <rect x="5" y="5" width="590" height="630" fill="url(#corkPattern)" rx="2"/>
+
+    <!-- Frame -->
+    <rect x="0" y="0" width="600" height="640" stroke="#8B4513" stroke-width="8" fill="none" rx="4"/>
+
+    <!-- Pinned photos/cards -->
+    <!-- Photo 1 - top left -->
+    <g>
+      <rect x="40" y="50" width="150" height="120" fill="#FFE5E5" transform="rotate(-5 115 110)"/>
+      <circle cx="115" cy="55" r="5" fill="#FF6B6B"/>
+      <rect x="50" y="70" width="130" height="80" fill="#FFC0CB" transform="rotate(-5 115 110)"/>
+      <text x="115" y="115" font-family="Arial" font-size="14" text-anchor="middle" fill="#666" transform="rotate(-5 115 115)">Dream</text>
+    </g>
+
+    <!-- Photo 2 - top right -->
+    <g>
+      <rect x="410" y="60" width="140" height="140" fill="#E5F4FF" transform="rotate(3 480 130)"/>
+      <circle cx="480" cy="65" r="5" fill="#4ECDC4"/>
+      <rect x="420" y="80" width="120" height="100" fill="#87CEEB" transform="rotate(3 480 130)"/>
+      <circle cx="480" cy="130" r="25" fill="#FFD700" opacity="0.7" transform="rotate(3 480 130)"/>
+    </g>
+
+    <!-- Sticky note 1 -->
+    <g>
+      <rect x="250" y="80" width="120" height="100" fill="#FFEB3B" transform="rotate(-2 310 130)"/>
+      <circle cx="310" cy="85" r="4" fill="#FFA500"/>
+      <line x1="260" y1="110" x2="350" y2="110" stroke="#F9A825" stroke-width="1" transform="rotate(-2 310 130)"/>
+      <line x1="260" y1="130" x2="350" y2="130" stroke="#F9A825" stroke-width="1" transform="rotate(-2 310 130)"/>
+      <line x1="260" y1="150" x2="330" y2="150" stroke="#F9A825" stroke-width="1" transform="rotate(-2 310 130)"/>
+    </g>
+
+    <!-- Photo 3 - middle left -->
+    <g>
+      <rect x="50" y="250" width="160" height="130" fill="#F0E5FF" transform="rotate(4 130 315)"/>
+      <circle cx="130" cy="255" r="5" fill="#9B59B6"/>
+      <rect x="60" y="270" width="140" height="100" fill="#DDA0DD" transform="rotate(4 130 315)"/>
+      <polygon points="130,300 110,330 150,330" fill="#FFD700" opacity="0.8" transform="rotate(4 130 315)"/>
+    </g>
+
+    <!-- Polaroid photo -->
+    <g>
+      <rect x="240" y="240" width="140" height="170" fill="#FFFFFF" transform="rotate(-3 310 325)"/>
+      <circle cx="310" cy="245" r="5" fill="#FF69B4"/>
+      <rect x="250" y="260" width="120" height="120" fill="#98D8C8" transform="rotate(-3 310 325)"/>
+      <rect x="250" y="380" width="120" height="30" fill="#FFFFFF" transform="rotate(-3 310 325)"/>
+    </g>
+
+    <!-- Photo 4 - middle right -->
+    <g>
+      <rect x="420" y="270" width="150" height="120" fill="#FFE5CC" transform="rotate(2 495 330)"/>
+      <circle cx="495" cy="275" r="5" fill="#FF8C42"/>
+      <rect x="430" y="290" width="130" height="90" fill="#FFA07A" transform="rotate(2 495 330)"/>
+    </g>
+
+    <!-- Quote card -->
+    <g>
+      <rect x="60" y="450" width="200" height="140" fill="#E8F5E9" transform="rotate(-4 160 520)"/>
+      <circle cx="160" cy="455" r="5" fill="#4CAF50"/>
+      <text x="160" y="510" font-family="Arial" font-size="16" font-style="italic" text-anchor="middle" fill="#2E7D32" transform="rotate(-4 160 520)">
+        "Create your
+      </text>
+      <text x="160" y="535" font-family="Arial" font-size="16" font-style="italic" text-anchor="middle" fill="#2E7D32" transform="rotate(-4 160 520)">
+        own sunshine"
+      </text>
+    </g>
+
+    <!-- Small photos bottom right -->
+    <g>
+      <rect x="320" y="480" width="100" height="80" fill="#FFF3E0" transform="rotate(5 370 520)"/>
+      <circle cx="370" cy="485" r="4" fill="#FF9800"/>
+      <rect x="330" y="495" width="80" height="60" fill="#FFCC80" transform="rotate(5 370 520)"/>
+    </g>
+
+    <g>
+      <rect x="450" y="470" width="110" height="90" fill="#E1F5FE" transform="rotate(-6 505 515)"/>
+      <circle cx="505" cy="475" r="4" fill="#03A9F4"/>
+      <rect x="460" y="490" width="90" height="65" fill="#81D4FA" transform="rotate(-6 505 515)"/>
+    </g>
+
+    <!-- Decorative washi tape pieces -->
+    <rect x="380" y="200" width="80" height="15" fill="#FF69B4" opacity="0.6" transform="rotate(45 420 207)"/>
+    <rect x="100" y="420" width="60" height="12" fill="#4ECDC4" opacity="0.6" transform="rotate(-20 130 426)"/>
+  </g>
+
+  <!-- Title -->
+  <text x="400" y="60" font-family="Arial, sans-serif" font-size="40" font-weight="bold" text-anchor="middle" fill="#8B4513">
+    Kit Moodboard
+  </text>
+</svg>
