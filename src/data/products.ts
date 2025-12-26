@@ -1,5 +1,25 @@
 import type { Product } from '@/types/product'
 
+// Helper function to build product image paths
+const getProductImages = (
+  category: 'kits-enfants' | 'kits-adolescents',
+  subcategory: string,
+  id: number,
+  folderName: string,
+  imageCount: number,
+  extension: 'png' | 'svg' = 'png'
+) => {
+  const basePath = `/products/${category}/${subcategory}/${id}-${folderName}`
+  const images: string[] = []
+  for (let i = 1; i < imageCount; i++) {
+    images.push(`${basePath}/${i}.${extension}`)
+  }
+  return {
+    image: `${basePath}/0.${extension}`,
+    images,
+  }
+}
+
 export const products: Product[] = [
   // Carnets Créatifs Personnalisés
   {
@@ -8,12 +28,7 @@ export const products: Product[] = [
     description:
       "Carnet personnalisé avec des illustrations colorées d'animaux de la jungle. Parfait pour stimuler la créativité et l'imagination des enfants.",
     price: 12.99,
-    image: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500&q=80',
-    images: [
-      'https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?w=500&q=80',
-      'https://images.unsplash.com/photo-1518623001395-125242310d0c?w=500&q=80',
-      'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=500&q=80',
-    ],
+    ...getProductImages('kits-enfants', 'carnets-creatifs', 1, 'carnet-animaux-jungle', 13),
     category: 'Kits Enfants',
     subcategory: 'Carnets Créatifs',
     inStock: true,
@@ -34,12 +49,7 @@ export const products: Product[] = [
     description:
       'Carnet éducatif personnalisé pour découvrir les fruits et légumes de manière ludique et créative.',
     price: 12.99,
-    image: 'https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=500&q=80',
-    images: [
-      'https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=500&q=80',
-      'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=500&q=80',
-      'https://images.unsplash.com/photo-1542838132-92c53300491e?w=500&q=80',
-    ],
+    ...getProductImages('kits-enfants', 'carnets-creatifs', 2, 'carnet-fruits-legumes', 1),
     category: 'Kits Enfants',
     subcategory: 'Carnets Créatifs',
     inStock: true,
@@ -59,12 +69,7 @@ export const products: Product[] = [
     name: 'Carnet Créatif - Le Corps Humain',
     description: "Carnet personnalisé pour apprendre l'anatomie de façon amusante et interactive.",
     price: 12.99,
-    image: 'https://images.unsplash.com/photo-1532012197267-da84d127e765?w=500&q=80',
-    images: [
-      'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=500&q=80',
-      'https://images.unsplash.com/photo-1471107340929-a87cd0f5b5f3?w=500&q=80',
-      'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=500&q=80',
-    ],
+    ...getProductImages('kits-enfants', 'carnets-creatifs', 3, 'carnet-corps-humain', 1),
     category: 'Kits Enfants',
     subcategory: 'Carnets Créatifs',
     inStock: true,
@@ -87,12 +92,7 @@ export const products: Product[] = [
     description:
       'Kit complet pour créer son propre restaurant de pizzas. Développe la créativité et les compétences sociales.',
     price: 24.99,
-    image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&q=80',
-    images: [
-      'https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=500&q=80',
-      'https://images.unsplash.com/photo-1595854341625-f33ee10dbf94?w=500&q=80',
-      'https://images.unsplash.com/photo-1506354666786-959d6d497f1a?w=500&q=80',
-    ],
+    ...getProductImages('kits-enfants', 'kits-jouets-educatifs', 4, 'kit-resto-pizza', 5),
     category: 'Kits Enfants',
     subcategory: 'Kits Jouets Éducatifs',
     inStock: true,
@@ -113,12 +113,7 @@ export const products: Product[] = [
     description:
       'Kit de construction pour assembler sa propre maison. Stimule la motricité fine et la logique spatiale.',
     price: 29.99,
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=80',
-    images: [
-      'https://images.unsplash.com/photo-1587462161949-131bb62ba221?w=500&q=80',
-      'https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?w=500&q=80',
-      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=500&q=80',
-    ],
+    ...getProductImages('kits-enfants', 'kits-jouets-educatifs', 5, 'kit-maison-monter', 2),
     category: 'Kits Enfants',
     subcategory: 'Kits Jouets Éducatifs',
     inStock: true,
@@ -138,12 +133,7 @@ export const products: Product[] = [
     name: 'Kit Comptoir à Glaces',
     description: "Kit complet pour jouer au glacier. Encourage l'imagination et le jeu de rôle.",
     price: 26.99,
-    image: 'https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=500&q=80',
-    images: [
-      'https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=500&q=80',
-      'https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=500&q=80',
-      'https://images.unsplash.com/photo-1560008581-09826d1de69e?w=500&q=80',
-    ],
+    ...getProductImages('kits-enfants', 'kits-jouets-educatifs', 6, 'kit-comptoir-glaces', 2),
     category: 'Kits Enfants',
     subcategory: 'Kits Jouets Éducatifs',
     inStock: true,
@@ -166,12 +156,7 @@ export const products: Product[] = [
     description:
       "Journal créatif pour adolescents avec des pages inspirantes pour explorer ses rêves et projets. Un espace pour s'évader et laisser libre cours à son imagination.",
     price: 15.99,
-    image: 'https://images.unsplash.com/photo-1506765515384-028b60a970df?w=500&q=80',
-    images: [
-      'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=500&q=80',
-      'https://images.unsplash.com/photo-1511376777868-611b54f68947?w=500&q=80',
-      'https://images.unsplash.com/photo-1473186578172-c141e6798cf4?w=500&q=80',
-    ],
+    ...getProductImages('kits-adolescents', 'carnets-creatifs', 7, 'journal-creatif-evasion', 2, 'svg'),
     category: 'Kits Adolescents',
     subcategory: 'Carnets Créatifs',
     inStock: true,
@@ -192,12 +177,7 @@ export const products: Product[] = [
     description:
       'Journal intime avec des prompts créatifs pour exprimer ses émotions et pensées. Un compagnon de confiance pour les moments personnels.',
     price: 15.99,
-    image: 'https://images.unsplash.com/photo-1517842645767-c639042777db?w=500&q=80',
-    images: [
-      'https://images.unsplash.com/photo-1554306297-0c86e837d24b?w=500&q=80',
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80',
-      'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=500&q=80',
-    ],
+    ...getProductImages('kits-adolescents', 'carnets-creatifs', 8, 'journal-creatif-confidence', 2, 'svg'),
     category: 'Kits Adolescents',
     subcategory: 'Carnets Créatifs',
     inStock: true,
@@ -218,12 +198,7 @@ export const products: Product[] = [
     description:
       'Journal créatif pour se reconnecter à ses origines et valeurs. Des activités pour explorer son identité et son histoire familiale.',
     price: 15.99,
-    image: 'https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=500&q=80',
-    images: [
-      'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=500&q=80',
-      'https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?w=500&q=80',
-      'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=500&q=80',
-    ],
+    ...getProductImages('kits-adolescents', 'carnets-creatifs', 9, 'journal-creatif-racines', 2, 'svg'),
     category: 'Kits Adolescents',
     subcategory: 'Carnets Créatifs',
     inStock: true,
@@ -246,12 +221,7 @@ export const products: Product[] = [
     description:
       "Kit complet pour créer ses propres bijoux tendance. Contient perles, fils, fermoirs et outils pour fabriquer bracelets, colliers et boucles d'oreilles.",
     price: 34.99,
-    image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500&q=80',
-    images: [
-      'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=500&q=80',
-      'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500&q=80',
-      'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=500&q=80',
-    ],
+    ...getProductImages('kits-adolescents', 'kits-creatifs', 10, 'kit-bijoux', 2, 'svg'),
     category: 'Kits Adolescents',
     subcategory: 'Kits Créatifs',
     inStock: true,
@@ -272,12 +242,7 @@ export const products: Product[] = [
     description:
       "Kit créatif pour réaliser des tableaux d'inspiration personnalisés. Inclut cadre, épingles, stickers et accessoires pour créer son univers visuel.",
     price: 29.99,
-    image: 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?w=500&q=80',
-    images: [
-      'https://images.unsplash.com/photo-1493612276216-ee3925520721?w=500&q=80',
-      'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=500&q=80',
-      'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=500&q=80',
-    ],
+    ...getProductImages('kits-adolescents', 'kits-creatifs', 11, 'kit-moodboard', 2, 'svg'),
     category: 'Kits Adolescents',
     subcategory: 'Kits Créatifs',
     inStock: true,
