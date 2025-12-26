@@ -11,14 +11,15 @@ export function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary/10 to-primary/5 py-20 md:py-32">
+      <section className="from-primary/10 to-primary/5 relative bg-gradient-to-r py-20 md:py-32">
         <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-6xl">
               Bienvenue chez Hændy Kits
             </h1>
-            <p className="text-xl text-muted-foreground mb-8">
-              Découvrez nos kits créatifs et éducatifs pour enfants et adolescents. Apprendre en jouant !
+            <p className="text-muted-foreground mb-8 text-xl">
+              Découvrez nos kits créatifs et éducatifs pour enfants et adolescents. Apprendre en
+              jouant, créer en s'amusant !
             </p>
             <Link to="/kits">
               <Button size="lg">
@@ -32,16 +33,12 @@ export function Home() {
       {/* Featured Products Section */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Produits en Vedette
-            </h2>
-            <p className="text-muted-foreground">
-              Découvrez nos kits les plus populaires
-            </p>
+          <div className="mb-12 text-center">
+            <h2 className="mb-4 text-3xl font-bold md:text-4xl">Produits en Vedette</h2>
+            <p className="text-muted-foreground">Découvrez nos kits les plus populaires</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div className="mb-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {featuredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
@@ -58,34 +55,34 @@ export function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      <section className="bg-muted/30 py-16 md:py-24">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <Card>
-              <CardContent className="flex flex-col items-center text-center p-6">
-                <Package className="h-12 w-12 mb-4 text-primary" />
-                <h3 className="font-bold text-lg mb-2">Produits de Qualité</h3>
-                <p className="text-sm text-muted-foreground">
+              <CardContent className="flex flex-col items-center p-6 text-center">
+                <Package className="text-primary mb-4 h-12 w-12" />
+                <h3 className="mb-2 text-lg font-bold">Produits de Qualité</h3>
+                <p className="text-muted-foreground text-sm">
                   Sélection soigneuse de kits créatifs et éducatifs de haute qualité
                 </p>
               </CardContent>
             </Card>
 
             <Card>
-              <CardContent className="flex flex-col items-center text-center p-6">
-                <Truck className="h-12 w-12 mb-4 text-primary" />
-                <h3 className="font-bold text-lg mb-2">Livraison Rapide</h3>
-                <p className="text-sm text-muted-foreground">
+              <CardContent className="flex flex-col items-center p-6 text-center">
+                <Truck className="text-primary mb-4 h-12 w-12" />
+                <h3 className="mb-2 text-lg font-bold">Livraison Rapide</h3>
+                <p className="text-muted-foreground text-sm">
                   Livraison gratuite pour les commandes de plus de 50€. Recevez vos kits rapidement
                 </p>
               </CardContent>
             </Card>
 
             <Card>
-              <CardContent className="flex flex-col items-center text-center p-6">
-                <Shield className="h-12 w-12 mb-4 text-primary" />
-                <h3 className="font-bold text-lg mb-2">Paiement Sécurisé</h3>
-                <p className="text-sm text-muted-foreground">
+              <CardContent className="flex flex-col items-center p-6 text-center">
+                <Shield className="text-primary mb-4 h-12 w-12" />
+                <h3 className="mb-2 text-lg font-bold">Paiement Sécurisé</h3>
+                <p className="text-muted-foreground text-sm">
                   Achetez en toute confiance avec notre système de paiement sécurisé
                 </p>
               </CardContent>
