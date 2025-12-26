@@ -100,10 +100,10 @@ export function PersonalizationModal({ product, open, onClose }: Personalization
                 onChange={handleImageChange}
                 className="cursor-pointer"
               />
-              <Upload className="h-4 w-4 text-muted-foreground" />
+              <Upload className="text-muted-foreground h-4 w-4" />
             </div>
             {formData.customImage && (
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 Fichier sélectionné: {formData.customImage.name}
               </p>
             )}

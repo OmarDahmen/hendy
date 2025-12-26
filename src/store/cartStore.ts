@@ -52,19 +52,14 @@ export const useCartStore = create<CartStore>()(
         }
 
         set({
-          items: get().items.map((item) =>
-            item.id === productId ? { ...item, quantity } : item
-          ),
+          items: get().items.map((item) => (item.id === productId ? { ...item, quantity } : item)),
         })
       },
 
       clearCart: () => set({ items: [] }),
 
       getTotalPrice: () => {
-        return get().items.reduce(
-          (total, item) => total + item.price * item.quantity,
-          0
-        )
+        return get().items.reduce((total, item) => total + item.price * item.quantity, 0)
       },
 
       getTotalItems: () => {

@@ -26,13 +26,13 @@ export function ProductCard({ product }: ProductCardProps) {
 
   return (
     <>
-      <Card className="overflow-hidden transition-shadow hover:shadow-lg h-full flex flex-col">
+      <Card className="flex h-full flex-col overflow-hidden transition-shadow hover:shadow-lg">
         <CardHeader className="p-0">
           <div className="relative aspect-square overflow-hidden">
             <img
               src={product.image}
               alt={product.name}
-              className="w-full h-full object-cover transition-transform hover:scale-105"
+              className="h-full w-full object-cover transition-transform hover:scale-105"
             />
             {product.personalizable && (
               <Badge className="absolute top-2 left-2" variant="secondary">
@@ -42,16 +42,14 @@ export function ProductCard({ product }: ProductCardProps) {
             )}
           </div>
         </CardHeader>
-        <CardContent className="p-4 flex-grow">
-          <div className="flex items-start justify-between gap-2 mb-2">
-            <h3 className="font-semibold text-lg line-clamp-1">{product.name}</h3>
+        <CardContent className="flex-grow p-4">
+          <div className="mb-2 flex items-start justify-between gap-2">
+            <h3 className="line-clamp-1 text-lg font-semibold">{product.name}</h3>
             <Badge variant={product.inStock ? 'default' : 'secondary'}>
               {product.inStock ? 'En stock' : 'Rupture'}
             </Badge>
           </div>
-          <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
-            {product.description}
-          </p>
+          <p className="text-muted-foreground mb-3 line-clamp-2 text-sm">{product.description}</p>
           <p className="text-2xl font-bold">{product.price.toFixed(2)}€</p>
         </CardContent>
         <CardFooter className="p-4 pt-0">

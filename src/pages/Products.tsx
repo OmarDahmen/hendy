@@ -14,7 +14,7 @@ export function Products() {
   return (
     <div className="container mx-auto py-8">
       <div className="mb-8">
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">Nos Kits</h1>
+        <h1 className="mb-4 text-3xl font-bold md:text-4xl">Nos Kits</h1>
         <p className="text-muted-foreground mb-6">
           Découvrez notre collection de kits créatifs et éducatifs
         </p>
@@ -34,14 +34,14 @@ export function Products() {
       </div>
 
       {/* Products Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {filteredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
 
       {filteredProducts.length === 0 && (
-        <div className="text-center py-12">
+        <div className="py-12 text-center">
           <p className="text-muted-foreground">Aucun produit trouvé dans cette catégorie</p>
         </div>
       )}

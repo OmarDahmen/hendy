@@ -8,14 +8,14 @@ export function Header() {
   const totalItems = useCartStore((state) => state.getTotalItems())
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 overflow-x-hidden">
+    <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full overflow-x-hidden border-b backdrop-blur">
       <div className="container mx-auto flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2 font-bold text-xl">
+        <Link to="/" className="flex items-center gap-2 text-xl font-bold">
           <Store className="h-6 w-6" />
           <span>Hændy Kits</span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden items-center gap-6 md:flex">
           <Link to="/" className="text-sm font-medium hover:underline">
             Accueil
           </Link>
@@ -33,7 +33,7 @@ export function Header() {
             {totalItems > 0 && (
               <Badge
                 variant="destructive"
-                className="absolute -top-2 -right-2 h-5 w-5 flex items-center justify-center p-0"
+                className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center p-0"
               >
                 {totalItems}
               </Badge>
@@ -43,7 +43,7 @@ export function Header() {
       </div>
 
       {/* Mobile Navigation */}
-      <div className="md:hidden border-t">
+      <div className="border-t md:hidden">
         <nav className="container mx-auto flex items-center justify-around py-2">
           <Link to="/" className="text-xs font-medium hover:underline">
             Accueil
