@@ -1,10 +1,71 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Home } from '@/pages/Home'
 import { Products } from '@/pages/Products'
 import { Cart } from '@/pages/Cart'
 import { About } from '@/pages/About'
+import { useEffect, useRef } from 'react'
+
+const pageOrder = ['/', '/kits', '/about', '/cart']
+
+function SwipeableRoutes() {
+  const navigate = useNavigate()
+  const location = useLocation()
+  const touchStartX = useRef(0)
+  const touchEndX = useRef(0)
+
+  useEffect(() => {
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartX.current = e.touches[0].clientX
+    }
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      touchEndX.current = e.changedTouches[0].clientX
+      handleSwipe()
+    }
+
+    const handleSwipe = () => {
+      const swipeThreshold = 100
+      const swipeDistance = touchStartX.current - touchEndX.current
+
+      if (Math.abs(swipeDistance) < swipeThreshold) return
+
+      const currentIndex = pageOrder.indexOf(location.pathname)
+      if (currentIndex === -1) return
+
+      // Swipe left (next page)
+      if (swipeDistance > 0 && currentIndex < pageOrder.length - 1) {
+        navigate(pageOrder[currentIndex + 1])
+      }
+      // Swipe right (previous page)
+      else if (swipeDistance < 0 && currentIndex > 0) {
+        navigate(pageOrder[currentIndex - 1])
+      }
+    }
+
+    // Only add listeners on mobile
+    if (window.innerWidth <= 768) {
+      document.addEventListener('touchstart', handleTouchStart)
+      document.addEventListener('touchend', handleTouchEnd)
+    }
+
+    return () => {
+      document.removeEventListener('touchstart', handleTouchStart)
+      document.removeEventListener('touchend', handleTouchEnd)
+    }
+  }, [navigate, location])
+
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/kits" element={<Products />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/about" element={<About />} />
+    </Routes>
+  )
+}
 
 function App() {
   return (
@@ -12,13 +73,7 @@ function App() {
       <div className="flex flex-col min-h-screen">
         <Header />
         <main className="flex-1">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/kits" element={<Products />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/about" element={<About />} />
-          </Routes>
+          <SwipeableRoutes />
         </main>
         <Footer />
       </div>
