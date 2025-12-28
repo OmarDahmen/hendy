@@ -34,7 +34,7 @@ export function Footer() {
           <div>
             <h3 className="mb-3 font-bold">Contact</h3>
             <ul className="text-muted-foreground space-y-2 text-sm">
-              <li>Email: contact@haendy.com</li>
+              <li>Email: haendy.kits@gmail.com</li>
               <li>Téléphone: +33 6 31 85 47 53</li>
               <li>Adresse: Toulouse, France</li>
             </ul>

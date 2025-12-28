@@ -10,8 +10,9 @@ import {
 } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { sendReservationEmail } from '@/lib/emailService'
 import { useCartStore } from '@/store/cartStore'
-import { Minus, Plus, ShoppingBag, Sparkles, Trash2 } from 'lucide-react'
+import { Loader2, Minus, Plus, ShoppingBag, Sparkles, Trash2 } from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -25,15 +26,35 @@ export function Cart() {
     phone: '',
   })
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [emailError, setEmailError] = useState(false)
 
   const totalPrice = getTotalPrice()
   const shipping = totalPrice > 50 ? 0 : 4.99
   const tax = totalPrice * 0.2 // TVA 20%
   const finalTotal = totalPrice + shipping + tax
 
-  const handleReservationSubmit = (e: React.FormEvent) => {
+  const handleReservationSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setIsSubmitted(true)
+    setIsLoading(true)
+    setEmailError(false)
+
+    const cartItems = items.map((item) => ({
+      id: item.id,
+      name: item.name,
+      price: item.price,
+      quantity: item.quantity,
+      personalization: item.personalization,
+    }))
+
+    const success = await sendReservationEmail(reservationData, cartItems, finalTotal)
+
+    setIsLoading(false)
+    if (success) {
+      setIsSubmitted(true)
+    } else {
+      setEmailError(true)
+    }
   }
 
   const handleCloseModal = () => {
@@ -245,9 +266,21 @@ export function Cart() {
                     />
                   </div>
                 </div>
+                {emailError && (
+                  <p className="mb-4 text-center text-sm text-red-500">
+                    Une erreur est survenue. Veuillez réessayer.
+                  </p>
+                )}
                 <DialogFooter>
-                  <Button type="submit" className="w-full">
-                    Confirmer la réservation
+                  <Button type="submit" className="w-full" disabled={isLoading}>
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Envoi en cours...
+                      </>
+                    ) : (
+                      'Confirmer la réservation'
+                    )}
                   </Button>
                 </DialogFooter>
               </form>

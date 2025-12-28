@@ -1,5 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card'
-import { Palette, BookOpen, Sparkles, Heart } from 'lucide-react'
+import { BookOpen, Heart, Palette, Sparkles } from 'lucide-react'
 
 export function About() {
   return (
@@ -110,10 +110,10 @@ export function About() {
             <p className="text-muted-foreground">
               Écrivez-nous à{' '}
               <a
-                href="mailto:contact@haendy.com"
+                href="mailto:haendy.kits@gmail.com"
                 className="text-primary font-medium hover:underline"
               >
-                contact@haendy.com
+                haendy.kits@gmail.com
               </a>
             </p>
           </CardContent>
