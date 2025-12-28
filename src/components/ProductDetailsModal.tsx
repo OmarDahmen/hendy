@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/dialog'
 import { useCartStore } from '@/store/cartStore'
 import type { Product } from '@/types/product'
-import { Check, ChevronLeft, ChevronRight, ShoppingCart, Sparkles } from 'lucide-react'
+import { Check, ChevronLeft, ChevronRight, ShoppingCart, Sparkles, ZoomIn } from 'lucide-react'
 import { useState } from 'react'
 import { PersonalizationModal } from './PersonalizationModal'
 
@@ -23,6 +23,7 @@ export function ProductDetailsModal({ product, open, onClose }: ProductDetailsMo
   const { addItem, items } = useCartStore()
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
   const [showPersonalization, setShowPersonalization] = useState(false)
+  const [isZoomed, setIsZoomed] = useState(false)
 
   if (!product) return null
 
@@ -67,12 +68,16 @@ export function ProductDetailsModal({ product, open, onClose }: ProductDetailsMo
           <div className="grid gap-6 md:grid-cols-2">
             {/* Image Gallery */}
             <div className="space-y-4">
-              <div className="relative aspect-square overflow-hidden rounded-lg border bg-gray-50">
+              <div className="group relative aspect-square overflow-hidden rounded-lg border bg-gray-50">
                 <img
                   src={allImages[selectedImageIndex]}
                   alt={`${product.name} - Image ${selectedImageIndex + 1}`}
-                  className="h-full w-full object-contain"
+                  className="h-full w-full cursor-pointer object-contain transition-transform duration-300 hover:scale-110"
+                  onClick={() => setIsZoomed(true)}
                 />
+                <div className="absolute top-2 right-2 rounded-full bg-black/50 p-2 opacity-0 transition-opacity group-hover:opacity-100">
+                  <ZoomIn className="h-4 w-4 text-white" onClick={() => setIsZoomed(true)} />
+                </div>
                 {allImages.length > 1 && (
                   <>
                     <Button
@@ -184,6 +189,39 @@ export function ProductDetailsModal({ product, open, onClose }: ProductDetailsMo
           onClose={() => setShowPersonalization(false)}
         />
       )}
+
+      {/* Zoom Modal */}
+      <Dialog open={isZoomed} onOpenChange={setIsZoomed}>
+        <DialogContent className="max-w-7xl bg-black/95 p-4">
+          <div className="relative flex items-center justify-center">
+            <img
+              src={allImages[selectedImageIndex]}
+              alt={`${product.name} - Zoom`}
+              className="max-h-[90vh] w-auto object-contain"
+            />
+            {allImages.length > 1 && (
+              <>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="absolute top-1/2 left-4 -translate-y-1/2 rounded-full bg-white/80 backdrop-blur-sm"
+                  onClick={prevImage}
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </Button>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="absolute top-1/2 right-4 -translate-y-1/2 rounded-full bg-white/80 backdrop-blur-sm"
+                  onClick={nextImage}
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </Button>
+              </>
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </>
   )
 }
