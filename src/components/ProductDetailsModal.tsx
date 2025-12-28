@@ -67,11 +67,11 @@ export function ProductDetailsModal({ product, open, onClose }: ProductDetailsMo
           <div className="grid gap-6 md:grid-cols-2">
             {/* Image Gallery */}
             <div className="space-y-4">
-              <div className="relative aspect-square overflow-hidden rounded-lg border">
+              <div className="relative aspect-square overflow-hidden rounded-lg border bg-gray-50">
                 <img
                   src={allImages[selectedImageIndex]}
                   alt={`${product.name} - Image ${selectedImageIndex + 1}`}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-contain"
                 />
                 {allImages.length > 1 && (
                   <>
