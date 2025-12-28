@@ -7,7 +7,7 @@ const getProductImages = (
   id: number,
   folderName: string,
   imageCount: number,
-  extension: 'png' | 'svg' = 'png'
+  extension: 'png' | 'jpg' = 'png'
 ) => {
   const basePath = `/products/${category}/${subcategory}/${id}-${folderName}`
   const images: string[] = []
@@ -49,7 +49,7 @@ export const products: Product[] = [
     description:
       'Carnet éducatif personnalisé pour découvrir les fruits et légumes de manière ludique et créative.',
     price: 12.99,
-    ...getProductImages('kits-enfants', 'carnets-creatifs', 2, 'carnet-fruits-legumes', 1),
+    ...getProductImages('kits-enfants', 'carnets-creatifs', 2, 'carnet-fruits-legumes', 2),
     category: 'Kits Enfants',
     subcategory: 'Carnets Créatifs',
     inStock: true,
@@ -69,7 +69,7 @@ export const products: Product[] = [
     name: 'Carnet Créatif - Le Corps Humain',
     description: "Carnet personnalisé pour apprendre l'anatomie de façon amusante et interactive.",
     price: 12.99,
-    ...getProductImages('kits-enfants', 'carnets-creatifs', 3, 'carnet-corps-humain', 1),
+    ...getProductImages('kits-enfants', 'carnets-creatifs', 3, 'carnet-corps-humain', 2),
     category: 'Kits Enfants',
     subcategory: 'Carnets Créatifs',
     inStock: true,
@@ -156,7 +156,14 @@ export const products: Product[] = [
     description:
       "Journal créatif pour adolescents avec des pages inspirantes pour explorer ses rêves et projets. Un espace pour s'évader et laisser libre cours à son imagination.",
     price: 15.99,
-    ...getProductImages('kits-adolescents', 'carnets-creatifs', 7, 'journal-creatif-evasion', 2, 'svg'),
+    ...getProductImages(
+      'kits-adolescents',
+      'carnets-creatifs',
+      7,
+      'journal-creatif-evasion',
+      17,
+      'jpg'
+    ),
     category: 'Kits Adolescents',
     subcategory: 'Carnets Créatifs',
     inStock: true,
@@ -177,7 +184,14 @@ export const products: Product[] = [
     description:
       'Journal intime avec des prompts créatifs pour exprimer ses émotions et pensées. Un compagnon de confiance pour les moments personnels.',
     price: 15.99,
-    ...getProductImages('kits-adolescents', 'carnets-creatifs', 8, 'journal-creatif-confidence', 2, 'svg'),
+    ...getProductImages(
+      'kits-adolescents',
+      'carnets-creatifs',
+      8,
+      'journal-creatif-confidence',
+      1,
+      'jpg'
+    ),
     category: 'Kits Adolescents',
     subcategory: 'Carnets Créatifs',
     inStock: true,
@@ -198,7 +212,14 @@ export const products: Product[] = [
     description:
       'Journal créatif pour se reconnecter à ses origines et valeurs. Des activités pour explorer son identité et son histoire familiale.',
     price: 15.99,
-    ...getProductImages('kits-adolescents', 'carnets-creatifs', 9, 'journal-creatif-racines', 2, 'svg'),
+    ...getProductImages(
+      'kits-adolescents',
+      'carnets-creatifs',
+      9,
+      'journal-creatif-racines',
+      1,
+      'jpg'
+    ),
     category: 'Kits Adolescents',
     subcategory: 'Carnets Créatifs',
     inStock: true,
@@ -221,7 +242,7 @@ export const products: Product[] = [
     description:
       "Kit complet pour créer ses propres bijoux tendance. Contient perles, fils, fermoirs et outils pour fabriquer bracelets, colliers et boucles d'oreilles.",
     price: 34.99,
-    ...getProductImages('kits-adolescents', 'kits-creatifs', 10, 'kit-bijoux', 2, 'svg'),
+    ...getProductImages('kits-adolescents', 'kits-creatifs', 10, 'kit-bijoux', 1, 'png'),
     category: 'Kits Adolescents',
     subcategory: 'Kits Créatifs',
     inStock: true,
@@ -242,7 +263,7 @@ export const products: Product[] = [
     description:
       "Kit créatif pour réaliser des tableaux d'inspiration personnalisés. Inclut cadre, épingles, stickers et accessoires pour créer son univers visuel.",
     price: 29.99,
-    ...getProductImages('kits-adolescents', 'kits-creatifs', 11, 'kit-moodboard', 2, 'svg'),
+    ...getProductImages('kits-adolescents', 'kits-creatifs', 11, 'kit-moodboard', 1, 'png'),
     category: 'Kits Adolescents',
     subcategory: 'Kits Créatifs',
     inStock: true,
