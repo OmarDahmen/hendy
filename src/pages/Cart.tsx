@@ -1,16 +1,49 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
 import { useCartStore } from '@/store/cartStore'
 import { Minus, Plus, ShoppingBag, Sparkles, Trash2 } from 'lucide-react'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export function Cart() {
   const { items, updateQuantity, removeItem, getTotalPrice, clearCart } = useCartStore()
+  const [isReservationOpen, setIsReservationOpen] = useState(false)
+  const [reservationData, setReservationData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+  })
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
   const totalPrice = getTotalPrice()
   const shipping = totalPrice > 50 ? 0 : 4.99
   const tax = totalPrice * 0.2 // TVA 20%
   const finalTotal = totalPrice + shipping + tax
+
+  const handleReservationSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitted(true)
+  }
+
+  const handleCloseModal = () => {
+    setIsReservationOpen(false)
+    if (isSubmitted) {
+      clearCart()
+      setIsSubmitted(false)
+      setReservationData({ firstName: '', lastName: '', email: '', phone: '' })
+    }
+  }
 
   if (items.length === 0) {
     return (
@@ -141,15 +174,101 @@ export function Cart() {
                 </div>
               </div>
 
-              <Button className="w-full" size="lg">
-                Passer la commande
+              <Button className="w-full" size="lg" onClick={() => setIsReservationOpen(true)}>
+                Réserver
               </Button>
-
-              <p className="text-muted-foreground mt-4 text-center text-xs">Paiement sécurisé</p>
             </CardContent>
           </Card>
         </div>
       </div>
+
+      {/* Reservation Modal */}
+      <Dialog open={isReservationOpen} onOpenChange={handleCloseModal}>
+        <DialogContent className="bg-white">
+          {!isSubmitted ? (
+            <>
+              <DialogHeader>
+                <DialogTitle>Réserver vos articles</DialogTitle>
+                <DialogDescription>
+                  Remplissez vos informations pour réserver vos articles. Nous vous contacterons
+                  pour finaliser votre commande.
+                </DialogDescription>
+              </DialogHeader>
+              <form onSubmit={handleReservationSubmit}>
+                <div className="grid gap-4 py-4">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="firstName">Prénom</Label>
+                      <Input
+                        id="firstName"
+                        value={reservationData.firstName}
+                        onChange={(e) =>
+                          setReservationData({ ...reservationData, firstName: e.target.value })
+                        }
+                        required
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="lastName">Nom</Label>
+                      <Input
+                        id="lastName"
+                        value={reservationData.lastName}
+                        onChange={(e) =>
+                          setReservationData({ ...reservationData, lastName: e.target.value })
+                        }
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={reservationData.email}
+                      onChange={(e) =>
+                        setReservationData({ ...reservationData, email: e.target.value })
+                      }
+                      required
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">Téléphone</Label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      value={reservationData.phone}
+                      onChange={(e) =>
+                        setReservationData({ ...reservationData, phone: e.target.value })
+                      }
+                      required
+                    />
+                  </div>
+                </div>
+                <DialogFooter>
+                  <Button type="submit" className="w-full">
+                    Confirmer la réservation
+                  </Button>
+                </DialogFooter>
+              </form>
+            </>
+          ) : (
+            <div className="py-8 text-center">
+              <div className="bg-primary/10 mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full">
+                <ShoppingBag className="text-primary h-8 w-8" />
+              </div>
+              <DialogTitle className="mb-2">Réservation confirmée !</DialogTitle>
+              <DialogDescription>
+                Merci {reservationData.firstName} ! Nous vous contacterons bientôt à{' '}
+                {reservationData.email} pour finaliser votre commande.
+              </DialogDescription>
+              <Button className="mt-6" onClick={handleCloseModal}>
+                Fermer
+              </Button>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }
