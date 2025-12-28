@@ -107,7 +107,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const { error } = await resend.emails.send({
       from: 'Hændy Kits <onboarding@resend.dev>',
-      to: ['omardahmen@gmail.com'],
+      to: ['haendy.kits@gmail.com'],
       subject: `Nouvelle Réservation - ${reservationData.firstName} ${reservationData.lastName}`,
       html: emailHtml,
     })
