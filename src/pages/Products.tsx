@@ -41,7 +41,7 @@ export function Products() {
   }, [selectedCategory, selectedSubcategory])
 
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
         <h1 className="mb-4 text-3xl font-bold md:text-4xl">Nos Kits</h1>
         <p className="text-muted-foreground mb-6">

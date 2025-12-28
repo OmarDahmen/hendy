@@ -75,7 +75,7 @@ export function Home() {
           }}
         />
         <div className="relative py-20 md:py-32">
-          <div className="container mx-auto">
+          <div className="container mx-auto px-4">
             <div className="mx-auto max-w-3xl text-center">
               <h1 className="mb-6 text-4xl font-bold tracking-tight text-gray-900 md:text-6xl">
                 Hændy Kits
@@ -99,7 +99,7 @@ export function Home() {
 
       {/* Featured Products Section */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold md:text-4xl">Produits en Vedette</h2>
             <p className="text-muted-foreground">Découvrez nos kits les plus populaires</p>
@@ -176,7 +176,7 @@ export function Home() {
 
       {/* Features Section */}
       <section className="bg-muted/30 py-16 md:py-24">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <Card>
               <CardContent className="flex flex-col items-center p-6 text-center">

@@ -3,7 +3,7 @@ import { Palette, BookOpen, Sparkles, Heart } from 'lucide-react'
 
 export function About() {
   return (
-    <div className="container mx-auto py-8">
+    <div className="container mx-auto px-4 py-8">
       <div className="mx-auto max-w-4xl">
         <h1 className="mb-4 text-3xl font-bold md:text-4xl">À Propos de Hændy Kits</h1>
         <p className="text-muted-foreground mb-12 text-lg">
