@@ -84,6 +84,27 @@ export const products: Product[] = [
     detailedDescription:
       "Ce carnet éducatif fait découvrir le corps humain aux enfants de manière simple et ludique. Avec des schémas clairs et des explications adaptées, votre enfant apprend le fonctionnement des organes, des muscles et du squelette. Les activités interactives renforcent l'apprentissage de façon amusante.",
   },
+  {
+    id: 12,
+    name: 'Carnet Créatif - Mon Petit Mouton',
+    description:
+      'Carnet personnalisé avec des illustrations adorables de moutons. Parfait pour développer la créativité et accompagner les enfants dans leurs apprentissages.',
+    price: 12.99,
+    ...getProductImages('kits-enfants', 'carnets-creatifs', 12, 'carnet-petit-mouton', 5, 'jpg'),
+    category: 'Kits Enfants',
+    subcategory: 'Carnets Créatifs',
+    inStock: true,
+    personalizable: true,
+    features: [
+      '48 pages illustrées haute qualité',
+      'Personnalisation avec prénom et message',
+      'Couverture rigide résistante',
+      'Illustrations douces et apaisantes',
+      'Format A5 facile à transporter',
+    ],
+    detailedDescription:
+      "Ce carnet créatif invite votre enfant dans l'univers tendre des moutons ! Avec ses illustrations douces et apaisantes, il encourage la créativité et l'imagination. Chaque page propose des activités ludiques et éducatives autour de ce petit animal attachant. La personnalisation avec le prénom de l'enfant rend ce carnet unique et précieux.",
+  },
 
   // Kits Jouets Éducatifs
   {
