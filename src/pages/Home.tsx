@@ -66,32 +66,34 @@ export function Home() {
     <div className="flex flex-col">
       {/* Hero Section with Banner */}
       <section className="relative overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: 'url(/banner.svg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
-        <div className="relative py-20 md:py-32">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto max-w-3xl text-center">
-              <h1 className="mb-6 text-4xl font-bold tracking-tight text-gray-900 md:text-6xl">
-                Hændy Kits
-              </h1>
-              <p className="mb-8 text-xl font-medium text-gray-700">
-                Créativité et Apprentissage pour Enfants
-              </p>
-              <p className="mb-8 text-lg text-gray-600">
-                Découvrez nos kits créatifs et éducatifs pour enfants et adolescents. Apprendre en
-                jouant, créer en s'amusant !
-              </p>
-              <Link to="/kits">
-                <Button size="lg" className="shadow-lg">
-                  Découvrir nos Kits <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
+        <div className="container mx-auto px-4">
+          <div className="relative overflow-hidden rounded-lg">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: 'url(/banner.svg)',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+              }}
+            />
+            <div className="relative py-20 md:py-32">
+              <div className="mx-auto max-w-3xl text-center">
+                <h1 className="mb-6 text-4xl font-bold tracking-tight text-gray-900 md:text-6xl">
+                  Hændy Kits
+                </h1>
+                <p className="mb-8 text-xl font-medium text-gray-700">
+                  Créativité et Apprentissage pour Enfants
+                </p>
+                <p className="mb-8 text-lg text-gray-600">
+                  Découvrez nos kits créatifs et éducatifs pour enfants et adolescents. Apprendre
+                  en jouant, créer en s'amusant !
+                </p>
+                <Link to="/kits">
+                  <Button size="lg" className="shadow-lg">
+                    Découvrir nos Kits <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
