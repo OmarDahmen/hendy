@@ -65,19 +65,17 @@ export function Home() {
   return (
     <div className="flex flex-col">
       {/* Hero Section with Banner */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden pt-8">
         <div className="container mx-auto px-4">
           <div className="relative overflow-hidden rounded-lg">
             <div
-              className="absolute inset-0 bg-cover bg-center"
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
               style={{
-                backgroundImage: 'url(/banner.svg)',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
+                backgroundImage: 'url(/banner.png)',
               }}
             />
             <div className="relative py-20 md:py-32">
-              <div className="mx-auto max-w-3xl text-center">
+              <div className="max-w-md pl-8 text-left md:max-w-lg md:pl-12">
                 <h1 className="mb-6 text-4xl font-bold tracking-tight text-gray-900 md:text-6xl">
                   Hændy Kits
                 </h1>
@@ -85,8 +83,8 @@ export function Home() {
                   Créativité et Apprentissage pour Enfants
                 </p>
                 <p className="mb-8 text-lg text-gray-600">
-                  Découvrez nos kits créatifs et éducatifs pour enfants et adolescents. Apprendre
-                  en jouant, créer en s'amusant !
+                  Découvrez nos kits créatifs et éducatifs pour enfants et adolescents. Apprendre en
+                  jouant, créer en s'amusant !
                 </p>
                 <Link to="/kits">
                   <Button size="lg" className="shadow-lg">
