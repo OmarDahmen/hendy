@@ -11,21 +11,11 @@ export function Home() {
   const [showLeftArrow, setShowLeftArrow] = useState(false)
   const [showRightArrow, setShowRightArrow] = useState(true)
 
-  // Sélectionner 8 produits variés : mélange de catégories et sous-catégories
-  const featuredProducts = [
-    ...products
-      .filter((p) => p.category === 'Kits Enfants' && p.subcategory === 'Carnets Créatifs')
-      .slice(0, 2),
-    ...products
-      .filter((p) => p.category === 'Kits Enfants' && p.subcategory === 'Kits Jouets Éducatifs')
-      .slice(0, 2),
-    ...products
-      .filter((p) => p.category === 'Kits Adolescents' && p.subcategory === 'Carnets Créatifs')
-      .slice(0, 2),
-    ...products
-      .filter((p) => p.category === 'Kits Adolescents' && p.subcategory === 'Kits Créatifs')
-      .slice(0, 2),
-  ]
+  // Produits en vedette (ordre spécifique)
+  const featuredProductIds = [6, 4, 5, 3, 11, 10, 8, 12]
+  const featuredProducts = featuredProductIds
+    .map((id) => products.find((p) => p.id === id))
+    .filter((p) => p !== undefined)
 
   const updateArrowsVisibility = () => {
     if (scrollContainerRef.current) {
