@@ -1,3 +1,4 @@
+import { CurrencySelector } from '@/components/CurrencySelector'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { useCartStore } from '@/store/cartStore'
@@ -28,6 +29,8 @@ export function Navbar() {
           <Link to="/about" className="hover:text-primary text-sm font-medium transition-colors">
             À Propos
           </Link>
+
+          <CurrencySelector />
 
           <Link to="/cart">
             <Button variant="outline" size="icon" className="relative">

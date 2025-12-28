@@ -8,6 +8,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog'
 import { useCartStore } from '@/store/cartStore'
+import { useCurrencyStore, formatPrice } from '@/store/currencyStore'
 import type { Product } from '@/types/product'
 import { Check, ChevronLeft, ChevronRight, ShoppingCart, Sparkles, ZoomIn } from 'lucide-react'
 import { useState } from 'react'
@@ -21,6 +22,7 @@ interface ProductDetailsModalProps {
 
 export function ProductDetailsModal({ product, open, onClose }: ProductDetailsModalProps) {
   const { addItem, items } = useCartStore()
+  const currency = useCurrencyStore((state) => state.currency)
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
   const [showPersonalization, setShowPersonalization] = useState(false)
   const [isZoomed, setIsZoomed] = useState(false)
@@ -127,7 +129,7 @@ export function ProductDetailsModal({ product, open, onClose }: ProductDetailsMo
             {/* Product Details */}
             <div className="flex flex-col space-y-4">
               <div>
-                <p className="text-3xl font-bold">{product.price.toFixed(2)}€</p>
+                <p className="text-3xl font-bold">{formatPrice(product.price, product.priceDT, currency)}</p>
                 <p className="text-muted-foreground mt-1 text-sm">
                   Catégorie: {product.category} · {product.subcategory}
                 </p>

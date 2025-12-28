@@ -9,6 +9,7 @@ interface CartStore {
   updateQuantity: (productId: number, quantity: number) => void
   clearCart: () => void
   getTotalPrice: () => number
+  getTotalPriceDT: () => number
   getTotalItems: () => number
 }
 
@@ -60,6 +61,10 @@ export const useCartStore = create<CartStore>()(
 
       getTotalPrice: () => {
         return get().items.reduce((total, item) => total + item.price * item.quantity, 0)
+      },
+
+      getTotalPriceDT: () => {
+        return get().items.reduce((total, item) => total + item.priceDT * item.quantity, 0)
       },
 
       getTotalItems: () => {

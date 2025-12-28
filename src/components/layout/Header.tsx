@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
 import { useCartStore } from '@/store/cartStore'
 import { ShoppingCart, Store } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
+import { CurrencySelector } from '../CurrencySelector'
 
 export function Header() {
   const totalItems = useCartStore((state) => state.getTotalItems())
@@ -49,6 +50,8 @@ export function Header() {
             À Propos
           </Link>
         </nav>
+
+        <CurrencySelector />
 
         <Link to="/cart">
           <Button variant="outline" size="icon" className="relative">

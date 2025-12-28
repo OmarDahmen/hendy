@@ -3,6 +3,7 @@ export interface Product {
   name: string
   description: string
   price: number
+  priceDT: number
   image: string
   images?: string[] // Additional product images for gallery
   category: 'Kits Enfants' | 'Kits Adolescents'

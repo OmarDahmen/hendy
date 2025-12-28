@@ -2,6 +2,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { useCartStore } from '@/store/cartStore'
+import { useCurrencyStore, formatPrice } from '@/store/currencyStore'
 import type { Product } from '@/types/product'
 import { Check, Eye, ShoppingCart, Sparkles } from 'lucide-react'
 import { useState } from 'react'
@@ -13,6 +14,7 @@ interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   const { addItem, items } = useCartStore()
+  const currency = useCurrencyStore((state) => state.currency)
   const isInCart = items.some((item) => item.id === product.id)
   const [showDetails, setShowDetails] = useState(false)
 
@@ -57,7 +59,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </Badge>
           </div>
           <p className="text-muted-foreground mb-3 line-clamp-2 text-sm">{product.description}</p>
-          <p className="text-2xl font-bold">{product.price.toFixed(2)}€</p>
+          <p className="text-2xl font-bold">{formatPrice(product.price, product.priceDT, currency)}</p>
         </CardContent>
         <CardFooter className="p-4 pt-0">
           <Button

@@ -12,12 +12,15 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { sendReservationEmail } from '@/lib/emailService'
 import { useCartStore } from '@/store/cartStore'
+import { useCurrencyStore, formatPrice } from '@/store/currencyStore'
 import { Loader2, Minus, Plus, ShoppingBag, Sparkles, Trash2 } from 'lucide-react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export function Cart() {
-  const { items, updateQuantity, removeItem, getTotalPrice, clearCart } = useCartStore()
+  const { items, updateQuantity, removeItem, getTotalPrice, getTotalPriceDT, clearCart } =
+    useCartStore()
+  const currency = useCurrencyStore((state) => state.currency)
   const [isReservationOpen, setIsReservationOpen] = useState(false)
   const [reservationData, setReservationData] = useState({
     firstName: '',
@@ -30,9 +33,13 @@ export function Cart() {
   const [emailError, setEmailError] = useState(false)
 
   const totalPrice = getTotalPrice()
+  const totalPriceDT = getTotalPriceDT()
   const shipping = totalPrice > 50 ? 0 : 4.99
+  const shippingDT = totalPriceDT > 70 ? 0 : 7.9 // Tunisian equivalent
   const tax = totalPrice * 0.2 // TVA 20%
+  const taxDT = totalPriceDT * 0.19 // TVA 19% in Tunisia
   const finalTotal = totalPrice + shipping + tax
+  const finalTotalDT = totalPriceDT + shippingDT + taxDT
 
   const handleReservationSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -123,7 +130,7 @@ export function Cart() {
                       </div>
                     )}
 
-                    <p className="text-lg font-bold">{item.price.toFixed(2)}€</p>
+                    <p className="text-lg font-bold">{formatPrice(item.price, item.priceDT, currency)}</p>
                   </div>
 
                   <div className="flex flex-col items-end justify-between">
@@ -170,28 +177,55 @@ export function Cart() {
               <div className="mb-4 space-y-2">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Sous-total</span>
-                  <span>{totalPrice.toFixed(2)}€</span>
+                  <span>
+                    {currency === 'EUR'
+                      ? `${totalPrice.toFixed(2)}€`
+                      : `${totalPriceDT.toFixed(2)} DT`}
+                  </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Livraison</span>
-                  <span>{shipping === 0 ? 'GRATUITE' : `${shipping.toFixed(2)}€`}</span>
+                  <span>
+                    {currency === 'EUR'
+                      ? shipping === 0
+                        ? 'GRATUITE'
+                        : `${shipping.toFixed(2)}€`
+                      : shippingDT === 0
+                        ? 'GRATUITE'
+                        : `${shippingDT.toFixed(2)} DT`}
+                  </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-muted-foreground">TVA (20%)</span>
-                  <span>{tax.toFixed(2)}€</span>
+                  <span className="text-muted-foreground">
+                    TVA ({currency === 'EUR' ? '20%' : '19%'})
+                  </span>
+                  <span>
+                    {currency === 'EUR' ? `${tax.toFixed(2)}€` : `${taxDT.toFixed(2)} DT`}
+                  </span>
                 </div>
               </div>
 
-              {totalPrice < 50 && (
-                <p className="text-muted-foreground bg-secondary/20 mb-4 rounded p-2 text-sm">
-                  Ajoutez {(50 - totalPrice).toFixed(2)}€ pour profiter de la livraison gratuite
-                </p>
-              )}
+              {currency === 'EUR'
+                ? totalPrice < 50 && (
+                    <p className="text-muted-foreground bg-secondary/20 mb-4 rounded p-2 text-sm">
+                      Ajoutez {(50 - totalPrice).toFixed(2)}€ pour profiter de la livraison gratuite
+                    </p>
+                  )
+                : totalPriceDT < 70 && (
+                    <p className="text-muted-foreground bg-secondary/20 mb-4 rounded p-2 text-sm">
+                      Ajoutez {(70 - totalPriceDT).toFixed(2)} DT pour profiter de la livraison
+                      gratuite
+                    </p>
+                  )}
 
               <div className="mb-6 border-t pt-4">
                 <div className="flex items-center justify-between">
                   <span className="text-xl font-bold">Total</span>
-                  <span className="text-2xl font-bold">{finalTotal.toFixed(2)}€</span>
+                  <span className="text-2xl font-bold">
+                    {currency === 'EUR'
+                      ? `${finalTotal.toFixed(2)}€`
+                      : `${finalTotalDT.toFixed(2)} DT`}
+                  </span>
                 </div>
               </div>
 

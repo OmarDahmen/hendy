@@ -27,7 +27,8 @@ export const products: Product[] = [
     name: 'Carnet Créatif - Animaux de la Jungle',
     description:
       "Carnet personnalisé avec des illustrations colorées d'animaux de la jungle. Parfait pour stimuler la créativité et l'imagination des enfants.",
-    price: 12.99,
+    price: 29.99,
+    priceDT: 39.9,
     ...getProductImages('kits-enfants', 'carnets-creatifs', 1, 'carnet-animaux-jungle', 13),
     category: 'Kits Enfants',
     subcategory: 'Carnets Créatifs',
@@ -48,7 +49,8 @@ export const products: Product[] = [
     name: 'Carnet Créatif - Fruits et Légumes',
     description:
       'Carnet éducatif personnalisé pour découvrir les fruits et légumes de manière ludique et créative.',
-    price: 12.99,
+    price: 29.99,
+    priceDT: 39.9,
     ...getProductImages('kits-enfants', 'carnets-creatifs', 2, 'carnet-fruits-legumes', 2),
     category: 'Kits Enfants',
     subcategory: 'Carnets Créatifs',
@@ -68,7 +70,8 @@ export const products: Product[] = [
     id: 3,
     name: 'Carnet Créatif - Le Corps Humain',
     description: "Carnet personnalisé pour apprendre l'anatomie de façon amusante et interactive.",
-    price: 12.99,
+    price: 29.99,
+    priceDT: 39.9,
     ...getProductImages('kits-enfants', 'carnets-creatifs', 3, 'carnet-corps-humain', 2),
     category: 'Kits Enfants',
     subcategory: 'Carnets Créatifs',
@@ -89,7 +92,8 @@ export const products: Product[] = [
     name: 'Carnet Créatif - Mon Petit Mouton',
     description:
       'Carnet personnalisé avec des illustrations adorables de moutons. Parfait pour développer la créativité et accompagner les enfants dans leurs apprentissages.',
-    price: 12.99,
+    price: 14.99,
+    priceDT: 19.9,
     ...getProductImages('kits-enfants', 'carnets-creatifs', 12, 'carnet-petit-mouton', 5, 'jpg'),
     category: 'Kits Enfants',
     subcategory: 'Carnets Créatifs',
@@ -112,7 +116,8 @@ export const products: Product[] = [
     name: 'Kit Resto Pizza',
     description:
       'Kit complet pour créer son propre restaurant de pizzas. Développe la créativité et les compétences sociales.',
-    price: 24.99,
+    price: 15.99,
+    priceDT: 25.9,
     ...getProductImages('kits-enfants', 'kits-jouets-educatifs', 4, 'kit-resto-pizza', 5),
     category: 'Kits Enfants',
     subcategory: 'Kits Jouets Éducatifs',
@@ -133,7 +138,8 @@ export const products: Product[] = [
     name: 'Kit La Maison à Monter',
     description:
       'Kit de construction pour assembler sa propre maison. Stimule la motricité fine et la logique spatiale.',
-    price: 29.99,
+    price: 11.99,
+    priceDT: 19.9,
     ...getProductImages('kits-enfants', 'kits-jouets-educatifs', 5, 'kit-maison-monter', 2),
     category: 'Kits Enfants',
     subcategory: 'Kits Jouets Éducatifs',
@@ -153,7 +159,8 @@ export const products: Product[] = [
     id: 6,
     name: 'Kit Comptoir à Glaces',
     description: "Kit complet pour jouer au glacier. Encourage l'imagination et le jeu de rôle.",
-    price: 26.99,
+    price: 19.99,
+    priceDT: 29.9,
     ...getProductImages('kits-enfants', 'kits-jouets-educatifs', 6, 'kit-comptoir-glaces', 2),
     category: 'Kits Enfants',
     subcategory: 'Kits Jouets Éducatifs',
@@ -176,7 +183,8 @@ export const products: Product[] = [
     name: 'Mon Journal Créatif – Évasion',
     description:
       "Journal créatif pour adolescents avec des pages inspirantes pour explorer ses rêves et projets. Un espace pour s'évader et laisser libre cours à son imagination.",
-    price: 15.99,
+    price: 27.99,
+    priceDT: 37.9,
     ...getProductImages(
       'kits-adolescents',
       'carnets-creatifs',
@@ -204,7 +212,8 @@ export const products: Product[] = [
     name: 'Mon Journal Créatif – Confidence',
     description:
       'Journal intime avec des prompts créatifs pour exprimer ses émotions et pensées. Un compagnon de confiance pour les moments personnels.',
-    price: 15.99,
+    price: 27.99,
+    priceDT: 37.9,
     ...getProductImages(
       'kits-adolescents',
       'carnets-creatifs',
@@ -232,7 +241,8 @@ export const products: Product[] = [
     name: 'Mon Journal Créatif – Racines',
     description:
       'Journal créatif pour se reconnecter à ses origines et valeurs. Des activités pour explorer son identité et son histoire familiale.',
-    price: 15.99,
+    price: 27.99,
+    priceDT: 37.9,
     ...getProductImages(
       'kits-adolescents',
       'carnets-creatifs',
@@ -262,7 +272,8 @@ export const products: Product[] = [
     name: 'Kit Bijoux',
     description:
       "Kit complet pour créer ses propres bijoux tendance. Contient perles, fils, fermoirs et outils pour fabriquer bracelets, colliers et boucles d'oreilles.",
-    price: 34.99,
+    price: 30.99,
+    priceDT: 39.9,
     ...getProductImages('kits-adolescents', 'kits-creatifs', 10, 'kit-bijoux', 1, 'png'),
     category: 'Kits Adolescents',
     subcategory: 'Kits Créatifs',
@@ -283,7 +294,8 @@ export const products: Product[] = [
     name: 'Kit Moodboard',
     description:
       "Kit créatif pour réaliser des tableaux d'inspiration personnalisés. Inclut cadre, épingles, stickers et accessoires pour créer son univers visuel.",
-    price: 29.99,
+    price: 31.99,
+    priceDT: 41.9,
     ...getProductImages('kits-adolescents', 'kits-creatifs', 11, 'kit-moodboard', 1, 'png'),
     category: 'Kits Adolescents',
     subcategory: 'Kits Créatifs',
