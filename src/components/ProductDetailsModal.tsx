@@ -11,8 +11,22 @@ import { useCartStore } from '@/store/cartStore'
 import { useCurrencyStore, formatPrice } from '@/store/currencyStore'
 import type { Product } from '@/types/product'
 import { Check, ChevronLeft, ChevronRight, ShoppingCart, Sparkles, ZoomIn } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { PersonalizationModal } from './PersonalizationModal'
+
+// Hook to check if we're on desktop (md breakpoint = 768px)
+function useIsDesktop() {
+  const [isDesktop, setIsDesktop] = useState(false)
+
+  useEffect(() => {
+    const checkIsDesktop = () => setIsDesktop(window.innerWidth >= 768)
+    checkIsDesktop()
+    window.addEventListener('resize', checkIsDesktop)
+    return () => window.removeEventListener('resize', checkIsDesktop)
+  }, [])
+
+  return isDesktop
+}
 
 interface ProductDetailsModalProps {
   product: Product | null
@@ -26,6 +40,7 @@ export function ProductDetailsModal({ product, open, onClose }: ProductDetailsMo
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
   const [showPersonalization, setShowPersonalization] = useState(false)
   const [isZoomed, setIsZoomed] = useState(false)
+  const isDesktop = useIsDesktop()
 
   if (!product) return null
 
@@ -74,12 +89,14 @@ export function ProductDetailsModal({ product, open, onClose }: ProductDetailsMo
                 <img
                   src={allImages[selectedImageIndex]}
                   alt={`${product.name} - Image ${selectedImageIndex + 1}`}
-                  className="h-full w-full cursor-pointer object-contain transition-transform duration-300 hover:scale-110"
-                  onClick={() => setIsZoomed(true)}
+                  className={`h-full w-full object-contain transition-transform duration-300 ${isDesktop ? 'cursor-pointer hover:scale-110' : ''}`}
+                  onClick={() => isDesktop && setIsZoomed(true)}
                 />
-                <div className="absolute top-2 right-2 rounded-full bg-black/50 p-2 opacity-0 transition-opacity group-hover:opacity-100">
-                  <ZoomIn className="h-4 w-4 text-white" onClick={() => setIsZoomed(true)} />
-                </div>
+                {isDesktop && (
+                  <div className="absolute top-2 right-2 rounded-full bg-black/50 p-2 opacity-0 transition-opacity group-hover:opacity-100">
+                    <ZoomIn className="h-4 w-4 text-white" onClick={() => setIsZoomed(true)} />
+                  </div>
+                )}
                 {allImages.length > 1 && (
                   <>
                     <Button
