@@ -2,50 +2,73 @@
 
 @layer base {
   :root {
-    /* Warm, crafty color palette inspired by Hændy Kits logo */
-    /* Primary/Text: Chocolate brown from logo - hsl(27.19, 49.23%, 25.49%) */
-    --color-background: 35 30% 98%;
+    /*
+     * Hændy Kits Color Palette
+     * Inspired by the logo: warm chocolate brown with yarn/craft aesthetic
+     * Perfect for a kids creative & educational kits business
+     */
+
+    /* Base colors - warm cream/ivory background */
+    --color-background: 40 40% 97%;
     --color-foreground: 27 49% 25%;
-    --color-card: 35 30% 99%;
+
+    /* Cards - slightly warmer than background */
+    --color-card: 40 50% 99%;
     --color-card-foreground: 27 49% 25%;
-    --color-popover: 35 30% 99%;
+
+    /* Popovers */
+    --color-popover: 40 50% 99%;
     --color-popover-foreground: 27 49% 25%;
+
+    /* Primary - chocolate brown from logo */
     --color-primary: 27 49% 25%;
-    --color-primary-foreground: 35 30% 98%;
-    --color-secondary: 35 35% 93%;
+    --color-primary-foreground: 40 40% 97%;
+
+    /* Secondary - soft warm beige */
+    --color-secondary: 35 40% 92%;
     --color-secondary-foreground: 27 49% 25%;
-    --color-muted: 35 25% 94%;
-    --color-muted-foreground: 27 30% 45%;
-    --color-accent: 30 60% 90%;
+
+    /* Muted - light warm gray */
+    --color-muted: 35 30% 94%;
+    --color-muted-foreground: 27 25% 50%;
+
+    /* Accent - warm peach/coral for highlights */
+    --color-accent: 25 70% 92%;
     --color-accent-foreground: 27 49% 25%;
-    --color-destructive: 0 70% 50%;
-    --color-destructive-foreground: 35 30% 98%;
-    --color-border: 35 25% 88%;
-    --color-input: 35 25% 88%;
+
+    /* Destructive */
+    --color-destructive: 0 65% 50%;
+    --color-destructive-foreground: 40 40% 97%;
+
+    /* Borders & inputs - subtle warm tone */
+    --color-border: 30 30% 85%;
+    --color-input: 30 30% 85%;
     --color-ring: 27 49% 25%;
-    --radius: 0.5rem;
+
+    /* Rounded corners - softer for kids/playful feel */
+    --radius: 0.95rem;
   }
 
   .dark {
-    --color-background: 25 30% 8%;
-    --color-foreground: 35 30% 95%;
-    --color-card: 25 30% 10%;
-    --color-card-foreground: 35 30% 95%;
-    --color-popover: 25 30% 10%;
-    --color-popover-foreground: 35 30% 95%;
-    --color-primary: 35 45% 70%;
-    --color-primary-foreground: 25 30% 10%;
-    --color-secondary: 25 25% 18%;
-    --color-secondary-foreground: 35 30% 95%;
-    --color-muted: 25 25% 18%;
-    --color-muted-foreground: 35 20% 60%;
-    --color-accent: 25 25% 18%;
-    --color-accent-foreground: 35 30% 95%;
-    --color-destructive: 0 60% 40%;
-    --color-destructive-foreground: 35 30% 95%;
-    --color-border: 25 25% 18%;
-    --color-input: 25 25% 18%;
-    --color-ring: 35 45% 70%;
+    --color-background: 27 30% 8%;
+    --color-foreground: 40 30% 95%;
+    --color-card: 27 25% 12%;
+    --color-card-foreground: 40 30% 95%;
+    --color-popover: 27 25% 12%;
+    --color-popover-foreground: 40 30% 95%;
+    --color-primary: 35 50% 70%;
+    --color-primary-foreground: 27 30% 10%;
+    --color-secondary: 27 20% 18%;
+    --color-secondary-foreground: 40 30% 95%;
+    --color-muted: 27 20% 18%;
+    --color-muted-foreground: 35 20% 65%;
+    --color-accent: 27 25% 20%;
+    --color-accent-foreground: 40 30% 95%;
+    --color-destructive: 0 55% 40%;
+    --color-destructive-foreground: 40 30% 95%;
+    --color-border: 27 20% 20%;
+    --color-input: 27 20% 20%;
+    --color-ring: 35 50% 70%;
   }
 
   * {
@@ -73,6 +96,19 @@
       system-ui,
       -apple-system,
       sans-serif;
+    font-weight: 700;
+  }
+
+  /* Smooth transitions for interactive elements */
+  a,
+  button {
+    transition: all 0.2s ease;
+  }
+
+  /* Selection color matching brand */
+  ::selection {
+    background-color: hsl(27 49% 25% / 0.2);
+    color: hsl(27 49% 25%);
   }
 
   /* Hide scrollbar for Chrome, Safari and Opera */
