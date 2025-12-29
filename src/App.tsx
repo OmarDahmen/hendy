@@ -16,6 +16,11 @@ function SwipeableRoutes() {
   const touchEndX = useRef(0)
   const touchStartY = useRef(0)
 
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
+
   useEffect(() => {
     const handleTouchStart = (e: TouchEvent) => {
       touchStartX.current = e.touches[0].clientX
