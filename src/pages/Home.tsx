@@ -69,10 +69,10 @@ export function Home() {
                 <div>
                   <img src="/logo-text.png" alt="Hændy Kits" className="h-16 w-auto" />
                 </div>
-                <p className="mb-8 text-xl font-medium text-gray-700">
+                <p className="text-foreground mb-8 text-xl font-medium">
                   Créativité et Apprentissage pour Enfants
                 </p>
-                <p className="mb-8 text-lg text-gray-600">
+                <p className="text-muted-foreground mb-8 text-lg">
                   Découvrez nos kits créatifs et éducatifs pour enfants et adolescents. Apprendre en
                   jouant, créer en s'amusant !
                 </p>

@@ -2,48 +2,50 @@
 
 @layer base {
   :root {
-    --color-background: 0 0% 100%;
-    --color-foreground: 222.2 84% 4.9%;
-    --color-card: 0 0% 100%;
-    --color-card-foreground: 222.2 84% 4.9%;
-    --color-popover: 0 0% 100%;
-    --color-popover-foreground: 222.2 84% 4.9%;
-    --color-primary: 222.2 47.4% 11.2%;
-    --color-primary-foreground: 210 40% 98%;
-    --color-secondary: 210 40% 96.1%;
-    --color-secondary-foreground: 222.2 47.4% 11.2%;
-    --color-muted: 210 40% 96.1%;
-    --color-muted-foreground: 215.4 16.3% 46.9%;
-    --color-accent: 210 40% 96.1%;
-    --color-accent-foreground: 222.2 47.4% 11.2%;
-    --color-destructive: 0 84.2% 60.2%;
-    --color-destructive-foreground: 210 40% 98%;
-    --color-border: 214.3 31.8% 91.4%;
-    --color-input: 214.3 31.8% 91.4%;
-    --color-ring: 222.2 84% 4.9%;
+    /* Warm, crafty color palette inspired by Hændy Kits logo */
+    /* Primary/Text: Chocolate brown from logo - hsl(27.19, 49.23%, 25.49%) */
+    --color-background: 35 30% 98%;
+    --color-foreground: 27 49% 25%;
+    --color-card: 35 30% 99%;
+    --color-card-foreground: 27 49% 25%;
+    --color-popover: 35 30% 99%;
+    --color-popover-foreground: 27 49% 25%;
+    --color-primary: 27 49% 25%;
+    --color-primary-foreground: 35 30% 98%;
+    --color-secondary: 35 35% 93%;
+    --color-secondary-foreground: 27 49% 25%;
+    --color-muted: 35 25% 94%;
+    --color-muted-foreground: 27 30% 45%;
+    --color-accent: 30 60% 90%;
+    --color-accent-foreground: 27 49% 25%;
+    --color-destructive: 0 70% 50%;
+    --color-destructive-foreground: 35 30% 98%;
+    --color-border: 35 25% 88%;
+    --color-input: 35 25% 88%;
+    --color-ring: 27 49% 25%;
     --radius: 0.5rem;
   }
 
   .dark {
-    --color-background: 222.2 84% 4.9%;
-    --color-foreground: 210 40% 98%;
-    --color-card: 222.2 84% 4.9%;
-    --color-card-foreground: 210 40% 98%;
-    --color-popover: 222.2 84% 4.9%;
-    --color-popover-foreground: 210 40% 98%;
-    --color-primary: 210 40% 98%;
-    --color-primary-foreground: 222.2 47.4% 11.2%;
-    --color-secondary: 217.2 32.6% 17.5%;
-    --color-secondary-foreground: 210 40% 98%;
-    --color-muted: 217.2 32.6% 17.5%;
-    --color-muted-foreground: 215 20.2% 65.1%;
-    --color-accent: 217.2 32.6% 17.5%;
-    --color-accent-foreground: 210 40% 98%;
-    --color-destructive: 0 62.8% 30.6%;
-    --color-destructive-foreground: 210 40% 98%;
-    --color-border: 217.2 32.6% 17.5%;
-    --color-input: 217.2 32.6% 17.5%;
-    --color-ring: 212.7 26.8% 83.9%;
+    --color-background: 25 30% 8%;
+    --color-foreground: 35 30% 95%;
+    --color-card: 25 30% 10%;
+    --color-card-foreground: 35 30% 95%;
+    --color-popover: 25 30% 10%;
+    --color-popover-foreground: 35 30% 95%;
+    --color-primary: 35 45% 70%;
+    --color-primary-foreground: 25 30% 10%;
+    --color-secondary: 25 25% 18%;
+    --color-secondary-foreground: 35 30% 95%;
+    --color-muted: 25 25% 18%;
+    --color-muted-foreground: 35 20% 60%;
+    --color-accent: 25 25% 18%;
+    --color-accent-foreground: 35 30% 95%;
+    --color-destructive: 0 60% 40%;
+    --color-destructive-foreground: 35 30% 95%;
+    --color-border: 25 25% 18%;
+    --color-input: 25 25% 18%;
+    --color-ring: 35 45% 70%;
   }
 
   * {
