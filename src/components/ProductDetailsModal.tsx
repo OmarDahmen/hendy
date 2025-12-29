@@ -51,10 +51,10 @@ export function ProductDetailsModal({ product, open, onClose }: ProductDetailsMo
   return (
     <>
       <Dialog open={open} onOpenChange={onClose}>
-        <DialogContent className="bg-white sm:max-w-4xl">
-          <DialogHeader>
-            <DialogTitle className="text-2xl">{product.name}</DialogTitle>
-            <DialogDescription className="flex items-center gap-2">
+        <DialogContent className="max-h-[90vh] overflow-y-auto bg-white sm:max-w-4xl">
+          <DialogHeader className="pr-8">
+            <DialogTitle className="text-xl sm:text-2xl">{product.name}</DialogTitle>
+            <DialogDescription className="flex flex-wrap items-center gap-2">
               <Badge variant={product.inStock ? 'default' : 'secondary'}>
                 {product.inStock ? 'En stock' : 'Rupture de stock'}
               </Badge>
@@ -67,7 +67,7 @@ export function ProductDetailsModal({ product, open, onClose }: ProductDetailsMo
             </DialogDescription>
           </DialogHeader>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
             {/* Image Gallery */}
             <div className="space-y-4">
               <div className="group relative aspect-square overflow-hidden rounded-lg border bg-gray-50">
