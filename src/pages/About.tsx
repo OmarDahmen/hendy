@@ -9,6 +9,9 @@ export function About() {
         <p className="text-muted-foreground mb-12 text-lg">
           Une marque créative et éducative pour enfants et adolescents
         </p>
+        <div className="mb-12 flex justify-center">
+          <img src="/logo-image-text.png" alt="Hændy Kits" className="h-72 w-auto" />
+        </div>
 
         <div className="prose prose-lg mb-12 max-w-none">
           <h2 className="mb-4 text-2xl font-bold">Notre Mission</h2>

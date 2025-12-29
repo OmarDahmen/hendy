@@ -1,7 +1,7 @@
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { useCartStore } from '@/store/cartStore'
-import { ShoppingCart, Store } from 'lucide-react'
+import { ShoppingCart } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
 import { CurrencySelector } from '../CurrencySelector'
 
@@ -20,8 +20,8 @@ export function Header() {
     <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full overflow-x-hidden border-b backdrop-blur">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link to="/" className="flex items-center gap-2 text-xl font-bold">
-          <Store className="h-6 w-6" />
-          <span>Hændy Kits</span>
+          <img src="/logo.png" alt="Hændy Kits" className="h-10 w-auto" />
+          <img src="/logo-text.png" alt="Hændy Kits" className="h-10 w-auto" />
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
