@@ -88,7 +88,7 @@ export function Home() {
       </section>
 
       {/* Featured Products Section */}
-      <section className="py-16 md:py-24">
+      <section className="pt-16 pb-8 md:pt-24 md:pb-12">
         <div className="container mx-auto px-4">
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold md:text-4xl">Produits en Vedette</h2>
@@ -165,7 +165,7 @@ export function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="bg-muted/30 py-16 md:py-24">
+      <section className="bg-muted/30 pt-8 pb-16 md:pt-12 md:pb-24">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             <Card>
