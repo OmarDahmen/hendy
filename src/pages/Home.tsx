@@ -66,9 +66,9 @@ export function Home() {
             />
             <div className="relative py-20 md:py-32">
               <div className="max-w-md pl-8 text-left md:max-w-lg md:pl-12">
-                <h1 className="mb-6 text-4xl font-bold tracking-tight text-gray-900 md:text-6xl">
-                  Hændy Kits
-                </h1>
+                <div>
+                  <img src="/logo-text.png" alt="Hændy Kits" className="h-16 w-auto" />
+                </div>
                 <p className="mb-8 text-xl font-medium text-gray-700">
                   Créativité et Apprentissage pour Enfants
                 </p>
