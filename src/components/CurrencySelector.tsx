@@ -1,27 +1,33 @@
-import { Button } from '@/components/ui/button'
 import { useCurrencyStore } from '@/store/currencyStore'
+import { cn } from '@/lib/utils'
 
 export function CurrencySelector() {
   const { currency, setCurrency } = useCurrencyStore()
 
   return (
-    <div className="flex items-center gap-1 rounded-md border p-0.5">
-      <Button
-        variant={currency === 'DT' ? 'default' : 'ghost'}
-        size="sm"
-        className="h-7 px-2 text-xs"
+    <div className="flex items-center rounded-md border bg-muted p-0.5">
+      <button
+        className={cn(
+          'rounded px-2.5 py-1 text-xs font-medium transition-all',
+          currency === 'DT'
+            ? 'bg-primary text-primary-foreground shadow-sm'
+            : 'text-muted-foreground hover:text-foreground'
+        )}
         onClick={() => setCurrency('DT')}
       >
         DT
-      </Button>
-      <Button
-        variant={currency === 'EUR' ? 'default' : 'ghost'}
-        size="sm"
-        className="h-7 px-2 text-xs"
+      </button>
+      <button
+        className={cn(
+          'rounded px-2.5 py-1 text-xs font-medium transition-all',
+          currency === 'EUR'
+            ? 'bg-primary text-primary-foreground shadow-sm'
+            : 'text-muted-foreground hover:text-foreground'
+        )}
         onClick={() => setCurrency('EUR')}
       >
         EUR
-      </Button>
+      </button>
     </div>
   )
 }
