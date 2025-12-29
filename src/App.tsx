@@ -1,11 +1,11 @@
-import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom'
-import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+import { Header } from '@/components/layout/Header'
+import { About } from '@/pages/About'
+import { Cart } from '@/pages/Cart'
 import { Home } from '@/pages/Home'
 import { Products } from '@/pages/Products'
-import { Cart } from '@/pages/Cart'
-import { About } from '@/pages/About'
 import { useEffect, useRef } from 'react'
+import { BrowserRouter, Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 
 const pageOrder = ['/', '/kits', '/about', '/cart']
 
@@ -44,7 +44,9 @@ function SwipeableRoutes() {
 
       const swipeThreshold = 100
       const swipeDistance = touchStartX.current - touchEndX.current
-      const verticalDistance = Math.abs(touchStartY.current - (e.changedTouches[0]?.clientY || touchStartY.current))
+      const verticalDistance = Math.abs(
+        touchStartY.current - (e.changedTouches[0]?.clientY || touchStartY.current)
+      )
 
       // If vertical swipe is more prominent, don't navigate
       if (verticalDistance > Math.abs(swipeDistance)) return
@@ -76,21 +78,41 @@ function SwipeableRoutes() {
     }
   }, [navigate, location])
 
+  const currentIndex = pageOrder.indexOf(location.pathname)
+
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/products" element={<Products />} />
-      <Route path="/kits" element={<Products />} />
-      <Route path="/cart" element={<Cart />} />
-      <Route path="/about" element={<About />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/kits" element={<Products />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+
+      {/* Page indicators for mobile */}
+      {currentIndex !== -1 && (
+        <div className="fixed bottom-4 left-1/2 z-40 -translate-x-1/2 md:hidden">
+          <div className="flex gap-2 rounded-full bg-black/50 px-3 py-2 backdrop-blur-sm">
+            {pageOrder.map((_, index) => (
+              <div
+                key={index}
+                className={`h-2 w-2 rounded-full transition-all ${
+                  index === currentIndex ? 'w-6 bg-white' : 'bg-white/40'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   )
 }
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="flex flex-col min-h-screen">
+      <div className="flex min-h-screen flex-col">
         <Header />
         <main className="flex-1">
           <SwipeableRoutes />
