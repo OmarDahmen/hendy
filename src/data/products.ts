@@ -29,7 +29,7 @@ export const products: Product[] = [
       "Carnet personnalisé avec des illustrations colorées d'animaux de la jungle. Parfait pour stimuler la créativité et l'imagination des enfants.",
     price: 29.99,
     priceDT: 39.9,
-    ...getProductImages('kits-enfants', 'carnets-creatifs', 1, 'carnet-animaux-jungle', 13),
+    ...getProductImages('kits-enfants', 'carnets-creatifs', 1, 'carnet-animaux-jungle', 14),
     category: 'Kits Enfants',
     subcategory: 'Carnets Créatifs',
     inStock: true,

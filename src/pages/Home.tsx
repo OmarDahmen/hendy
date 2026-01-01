@@ -12,7 +12,7 @@ export function Home() {
   const [showRightArrow, setShowRightArrow] = useState(true)
 
   // Produits en vedette (ordre spécifique)
-  const featuredProductIds = [6, 4, 5, 3, 11, 10, 8, 12]
+  const featuredProductIds = [4, 12, 1, 7, 5, 8, 10, 6]
   const featuredProducts = featuredProductIds
     .map((id) => products.find((p) => p.id === id))
     .filter((p) => p !== undefined)
