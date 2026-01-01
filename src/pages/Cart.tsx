@@ -36,10 +36,8 @@ export function Cart() {
   const totalPriceDT = getTotalPriceDT()
   const shipping = totalPrice > 50 ? 0 : 4.99
   const shippingDT = totalPriceDT > 70 ? 0 : 7.9 // Tunisian equivalent
-  const tax = totalPrice * 0.2 // TVA 20%
-  const taxDT = totalPriceDT * 0.19 // TVA 19% in Tunisia
-  const finalTotal = totalPrice + shipping + tax
-  const finalTotalDT = totalPriceDT + shippingDT + taxDT
+  const finalTotal = totalPrice + shipping
+  const finalTotalDT = totalPriceDT + shippingDT
 
   const handleReservationSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -193,14 +191,6 @@ export function Cart() {
                       : shippingDT === 0
                         ? 'GRATUITE'
                         : `${shippingDT.toFixed(2)} DT`}
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">
-                    TVA ({currency === 'EUR' ? '20%' : '19%'})
-                  </span>
-                  <span>
-                    {currency === 'EUR' ? `${tax.toFixed(2)}€` : `${taxDT.toFixed(2)} DT`}
                   </span>
                 </div>
               </div>
